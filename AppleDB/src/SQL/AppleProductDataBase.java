@@ -70,8 +70,8 @@ public static ArrayList<String> getPhoneInfo(){
 
     //Query6 priceHighToLow
     public static ArrayList<String> priceHighToLow(){
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
         ) {
             String oQuery = "select im.name, im.phoneID," +
