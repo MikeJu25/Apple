@@ -1,14 +1,21 @@
 package ui;
 
+import SQL.AppleProductDataBase;
+import ui.model.Result;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class DataBaseUI extends JFrame implements ActionListener {
-    private JPanel panel;
+   // public static ArrayList<String> results;
+  //  public Result result;
+    private final JPanel panel;
     private final JPanel panel2;
     private final JPanel panel3;
+    private final JPanel panel4;
     private JLabel empty;
     private JLabel yearTitle;
     private JLabel priceTitle;
@@ -23,23 +30,44 @@ public class DataBaseUI extends JFrame implements ActionListener {
     private JCheckBox liushisi;
     private JCheckBox yibaershiba;
     private JButton apply;
+    private JButton priceLTHApply;
 
     private final JLabel test = new JLabel("good");
 
+//    public static void getResultsAll() {
+//        results = AppleProductDataBase.getPhoneInfo();
+//    }
+//
+//    public static void getResultsPLTH() {
+//        results = AppleProductDataBase.getPhoneInfo();
+//    }
 
-    String[] priceStrings = {"High to Low", "Low to High", "Enter Price Interval"};
-    String[] yearStrings = {"Oldest to Newest", "Newest to Oldest", "Enter Year Interval"};
+
+
+    String[] priceStrings = {"High to Low", "Low to High", "Default"};
+    String[] yearStrings = {"Oldest to Newest", "Newest to Oldest", "Default"};
 
     DataBaseUI() {
 //        panel = new JPanel();
         apply = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ResultTable();
+               // getResultsAll();
+
+                new ResultTable(Result.getResultAll());
             }
         });
         apply.setText("Apply");
-        add(apply);
+
+
+        priceLTHApply = new JButton(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new EmptyNameWindow();
+            }
+        });
+        priceLTHApply.setText("Apply");
+
 
         panel = new JPanel(new GridLayout(5, 1));
         add(panel);
@@ -48,6 +76,9 @@ public class DataBaseUI extends JFrame implements ActionListener {
         add(panel2);
         panel3 = new JPanel(new GridLayout(1, 3));
         add(panel3);
+        panel4 = new JPanel(new GridLayout(1, 3));
+        panel4.add(apply);
+        add(panel4);
 
         priceTitle = new JLabel("Price");
         yearTitle = new JLabel("Year");
@@ -66,7 +97,20 @@ public class DataBaseUI extends JFrame implements ActionListener {
 
         price = new JComboBox(priceStrings);
         price.setSelectedIndex(2);
-        price.addActionListener(this);
+        price.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedPrice = (String) price.getSelectedItem();
+                if (selectedPrice == "Low to High") {
+                    panel4.remove(apply);
+                    panel4.add(priceLTHApply);
+                    pack();
+                    setSize(600, 400);
+                }
+
+            }
+        });
+
 
         year = new JComboBox(yearStrings);
         year.setSelectedIndex(2);
