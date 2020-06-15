@@ -5,9 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ResultTable extends JFrame {
+public class ResultTable extends JFrame implements ActionListener{
     ResultTable(){
-
+        //this.setLayout(new GridLayout(23,2));
+        //JScrollBar bar = new JScrollBar();
         JPanel panel = new JPanel();
         add(panel);
 
@@ -32,6 +33,7 @@ public class ResultTable extends JFrame {
         JButton label19 = new JButton("                                                            ");
         JButton label20 = new JButton("                                                            ");
 
+        //panel.add(bar);
         panel.add(label1);
         panel.add(label2);
         panel.add(label3);
@@ -52,14 +54,19 @@ public class ResultTable extends JFrame {
         panel.add(label18);
         panel.add(label19);
         panel.add(label20);
-        
+
+
+
         setSize(new Dimension(300, 700));
-        setResizable(false);
+        setResizable(true);
         setLocation(600, 100);
         setTitle("Result Table");
         setVisible(true);
 
+    }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
     }
 }
