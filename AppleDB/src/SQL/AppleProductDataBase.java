@@ -9,7 +9,8 @@ public class AppleProductDataBase {
     public static void withConnection(String user, String pass, SQLCustomerFUN<Connection> callback) throws SQLException {
         System.out.println("Creating Connection...");
         try (
-                Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@loca　lhost:1522:ug", user, pass)) {
+
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@loca　lhost:1522:ug", user, pass)) {
             connection.setAutoCommit(false);
             System.out.println("Creating Connection... Success");
             callback.accept(connection);
