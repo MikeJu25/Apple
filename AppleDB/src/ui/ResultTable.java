@@ -1,17 +1,28 @@
 package ui;
 
+import SQL.AppleProductDataBase;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ResultTable extends JFrame {
+    private static ArrayList<String> results = new ArrayList<String>();
+
+    public static String getResult(int i) {
+        results = AppleProductDataBase.getPhoneInfo();
+        String result = results.get(i);
+        return result;
+    }
+
     ResultTable(){
 
         JPanel panel = new JPanel();
         add(panel);
 
-        JButton label1 = new JButton("                                                            ");
+        JButton label1 = new JButton(getResult(1));
         JButton label2 = new JButton("                                                            ");
         JButton label3 = new JButton("                                                            ");
         JButton label4 = new JButton("                                                            ");
