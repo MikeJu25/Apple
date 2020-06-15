@@ -68,6 +68,38 @@ public static ArrayList<String> getPhoneInfo(){
     return null;
 }
 
+    //Query6 priceHighToLow
+    public static ArrayList<String> priceHighToLow(){
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
+                "root", "q12345678");
+             Statement stmt = cont.createStatement();
+        ) {
+            String oQuery = "select im.name, im.phoneID," +
+                    " im.price, fc.color, fc.storage from iphonemanufacturedin2 im," +
+                    " featurescontains fc where im.phoneID = fc.phoneID Order by price";
+            ResultSet rst = stmt.executeQuery(oQuery);
+            System.out.println("The records selected are:");
+            int rowCount = 0;
+            ArrayList<String> info = new ArrayList<>();
+            while (rst.next()) {
+                String nm = rst.getString("name");
+                String phid = rst.getString("phoneID");
+                String pc = rst.getString("price");
+                String cl = rst.getString("color");
+                String st = rst.getString("storage");
+                String together = nm + ", " + phid + ", " + pc + ", " + cl + ", " + st;
+                info.add(together);
+                System.out.println(nm + ", " + phid + ", " + pc + ", " + cl + ", " + st);
+                ++rowCount;
+            }
+            System.out.println("Total number of records = " + rowCount);
+            return info;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
 }
 
 
