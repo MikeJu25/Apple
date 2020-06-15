@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class DataBaseUI extends JFrame implements ActionListener {
     private JPanel panel;
-
+    private JLabel empty;
     private JLabel yearTitle;
     private JLabel priceTitle;
     private JLabel storage;
@@ -19,21 +19,39 @@ public class DataBaseUI extends JFrame implements ActionListener {
     private JCheckBox black;
     private JCheckBox shiliu;
     private JCheckBox liushisi;
-    private JCheckBox black;
+    private JCheckBox yibaershiba;
+
 
 
 
     String[] strings = { "High to Low", "Low to High", "Interval"};
 
     DataBaseUI() {
-        panel = new JPanel(new GridLayout(3,1));
+//        panel = new JPanel();
+        panel = new JPanel(new GridLayout(5,1));
         add(panel);
+        this.setLayout(new GridLayout(3,1));
+        final JPanel panel2 = new JPanel(new GridLayout(3,1));
+        this.add(panel2);
+        final JPanel panel3 = new JPanel(new GridLayout(1,3));
+        this.add(panel3);
 
 
         priceTitle = new JLabel("Price");
         yearTitle = new JLabel("Year");
         storage = new JLabel("Storage");
         color = new JLabel("Color");
+        empty = new JLabel("\n");
+
+
+
+        gold = new JCheckBox("gold");
+        black = new JCheckBox("black");
+        gray = new JCheckBox("gray");
+        shiliu = new JCheckBox("16GB");
+        liushisi = new JCheckBox("64GB");
+        yibaershiba = new JCheckBox("128GB");
+
 
         price = new JComboBox(strings);
         price.setSelectedIndex(2);
@@ -45,10 +63,21 @@ public class DataBaseUI extends JFrame implements ActionListener {
 
         panel.add(yearTitle);
         panel.add(year);
+        panel.add(gold);
+        panel.add(empty);
         panel.add(priceTitle);
         panel.add(price);
-        panel.add(color);
-        panel.add(storage);
+        panel.add(empty);
+        panel.add(empty);
+        //panel.add(color);
+        panel3.add(gold);
+        panel3.add(black);
+        panel3.add(gray);
+        panel3.add(gold);
+        //panel.add(storage);
+        panel2.add(shiliu);
+        panel2.add(liushisi);
+        panel2.add(yibaershiba);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         add(panel, BorderLayout.CENTER);
