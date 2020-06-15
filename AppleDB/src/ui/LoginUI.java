@@ -102,12 +102,12 @@ public class LoginUI extends JFrame implements ActionListener {
         if (Objects.equals(userName, "")) {
             new EmptyNameWindow();
 
-            
+
         } if (userName.equals("feng0025")) {
             new DataBaseUI();
             setVisible(false);
 
-        } else {
+        } if (!userName.equals("feng0025") && !userName.equals("")){
             new TooLongNameWindow();
 
         }
