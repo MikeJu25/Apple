@@ -11,8 +11,8 @@ public class AppleProductDataBase {
 
     //Query1 AddCustomer(Insertion)
 public static void addDiscount(){
-    try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-            "root", "q12345678");
+    try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+            "root", "Guyingyuyi1!");
          Statement stmt = cont.createStatement();
     ) {
         String query1 = "insert into Discount values ('a', 'b', 'c')";
@@ -40,8 +40,8 @@ public static void addDiscount(){
 
 //Query2 GetIphoneInfo(Select)
 public static ArrayList<String> getPhoneInfo(){
-    try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-            "root", "q12345678");
+    try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+            "root", "Guyingyuyi1!");
          Statement stmt = cont.createStatement();
     ) {
         String strSelect = "select im.name, fc.color, fc.storage from iphonemanufacturedin2 im, featurescontains fc " +

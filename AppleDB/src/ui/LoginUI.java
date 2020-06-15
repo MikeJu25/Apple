@@ -32,33 +32,38 @@ public class LoginUI extends JFrame implements ActionListener {
 
     LoginUI() {
         panel = new JPanel();
+        JButton visitor = new JButton(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 new DataBaseUI();
+            }
+        });
+        visitor.setText("Visitor Login");
         add(panel);
 
         userLabel = new JLabel();
         userLabel.setText("  Username: ");
-        //userLabel.setFont(new Font("Serif", Font.PLAIN, 30));
         userNameText = new JTextField();
         userNameText.setPreferredSize(new Dimension(200,40));
 
         passwordLabel = new JLabel();
         passwordLabel.setText("  Password: ");
-        //passwordLabel.setFont(new Font("Serif", Font.PLAIN, 30));
         passwordText = new JTextField();
         passwordText.setPreferredSize(new Dimension(200,40));
 
         blankLabel = new JLabel();
         blankLabel.setText("      ");
 
-        submit = new JButton("              LOG IN              ");
+        submit = new JButton("         LOG IN         ");
         submit.setSize(200, 50);
 
         panel = new JPanel();
-        //panel.setLayout(new GridLayout(3,1));
         panel.add(userLabel);
         panel.add(userNameText);
         panel.add(passwordLabel);
         panel.add(passwordText);
         panel.add(submit);
+        panel.add(visitor);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         submit.addActionListener( this);
@@ -104,7 +109,7 @@ public class LoginUI extends JFrame implements ActionListener {
 
 
         } if (userName.equals("feng0025")) {
-            new DataBaseUI();
+            new AdministratorTable();
             setVisible(false);
 
         } if (!userName.equals("feng0025") && !userName.equals("")){
