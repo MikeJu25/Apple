@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 
 public class DataBaseUI extends JFrame implements ActionListener {
     private JPanel panel;
+    private final JPanel panel2;
+    private final JPanel panel3;
     private JLabel empty;
     private JLabel yearTitle;
     private JLabel priceTitle;
@@ -20,29 +22,38 @@ public class DataBaseUI extends JFrame implements ActionListener {
     private JCheckBox shiliu;
     private JCheckBox liushisi;
     private JCheckBox yibaershiba;
+    private JButton apply;
+
+    private final JLabel test = new JLabel("good");
 
 
-
-
-    String[] strings = { "High to Low", "Low to High", "Interval"};
+    String[] priceStrings = {"High to Low", "Low to High", "Enter Price Interval"};
+    String[] yearStrings = {"Oldest to Newest", "Newest to Oldest", "Enter Year Interval"};
 
     DataBaseUI() {
 //        panel = new JPanel();
-        panel = new JPanel(new GridLayout(5,1));
-        add(panel);
-        this.setLayout(new GridLayout(3,1));
-        final JPanel panel2 = new JPanel(new GridLayout(3,1));
-        this.add(panel2);
-        final JPanel panel3 = new JPanel(new GridLayout(1,3));
-        this.add(panel3);
+        apply = new JButton(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new EmptyNameWindow();
+            }
+        });
+        apply.setText("Apply");
+        add(apply);
 
+        panel = new JPanel(new GridLayout(5, 1));
+        add(panel);
+        this.setLayout(new GridLayout(4, 1));
+        panel2 = new JPanel(new GridLayout(1, 3));
+        add(panel2);
+        panel3 = new JPanel(new GridLayout(1, 3));
+        add(panel3);
 
         priceTitle = new JLabel("Price");
         yearTitle = new JLabel("Year");
         storage = new JLabel("Storage");
         color = new JLabel("Color");
         empty = new JLabel("\n");
-
 
 
         gold = new JCheckBox("gold");
@@ -53,11 +64,11 @@ public class DataBaseUI extends JFrame implements ActionListener {
         yibaershiba = new JCheckBox("128GB");
 
 
-        price = new JComboBox(strings);
+        price = new JComboBox(priceStrings);
         price.setSelectedIndex(2);
         price.addActionListener(this);
 
-        year = new JComboBox(strings);
+        year = new JComboBox(yearStrings);
         year.setSelectedIndex(2);
         year.addActionListener(this);
 
@@ -85,12 +96,23 @@ public class DataBaseUI extends JFrame implements ActionListener {
 
         setLocation(560, 350);
         setTitle("Filter");
-        setSize(450, 250);
+        setSize(600, 400);
         setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+//        JButton applyClicked = (JButton) e.getSource();
+//        JComboBox comboBox = (JComboBox) e.getSource();
+//
+//        if (applyClicked.getText().equals("Apply")) {
+//            System.out.println(comboBox.getSelectedIndex());
+//            if (comboBox.getSelectedItem() == "Low to High") {
+//                new EmptyNameWindow();
+//            }
+//        } else {
+//
+//        }
     }
 }
+
