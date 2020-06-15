@@ -54,8 +54,6 @@ public class ResultTable extends JFrame implements ActionListener{
         panel.add(label18);
         panel.add(label19);
         panel.add(label20);
-        
-
 
 
         setSize(new Dimension(300, 700));
