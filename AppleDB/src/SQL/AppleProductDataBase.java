@@ -54,9 +54,9 @@ public static ArrayList<String> getPhoneInfo(){
             String nm = rst.getString("name");
             String cr = rst.getString("color");
             String st = rst.getString("storage");
-            String together = nm + "," + cr + "," + st;
+            String together = nm + ", " + cr + ", " + st + "GB";
             info.add(together);
-            System.out.println(nm + ", " + cr + ", " + st);
+           // System.out.println(nm + ", " + cr + ", " + st);
             ++rowCount;
         }
     System.out.println("Total number of records = " + rowCount);
