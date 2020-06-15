@@ -1,38 +1,73 @@
 package SQL;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.io.*;
+import java.math.BigDecimal;
+import java.sql.*;
+import java.util.*;
+
+
 
 public class AppleProductDataBase {
-    public static void withConnection(String user, String pass, SQLCustomerFUN<Connection> callback) throws SQLException {
-        System.out.println("Creating Connection...");
-        try (
 
-            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@loca　lhost:1522:ug", user, pass)) {
-            connection.setAutoCommit(false);
-            System.out.println("Creating Connection... Success");
-            callback.accept(connection);
+    //Query1 AddCustomer(Insertion)
+public static void addDiscount(){
+    try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+            "root", "990428");
+         Statement stmt = cont.createStatement();
+    ) {
+        String query1 = "insert into Discount values ('a', 'b', 'c')";
+        System.out.println("The SQL statement is: " + query1 + "\n");
+        int countInserted = stmt.executeUpdate(query1);
+        System.out.println(countInserted + " records inserted.\n");
+
+        String strSelect = "select * from Discount";
+        ResultSet rst = stmt.executeQuery(strSelect);
+        System.out.println("The records selected are:");
+        int rowCount = 0;
+        while (rst.next()) {
+            String dn = rst.getString("discountName");
+            String lev = rst.getString("level");
+            String al = rst.getString("applicability");
+            System.out.println(dn + ", " + lev + ", " + al);
+            ++rowCount;
         }
+        System.out.println("Total number of records = " + rowCount);
+
+    } catch (SQLException ex) {
+        ex.printStackTrace();
     }
+}
 
-
-    public static void addDiscount(Connection connection, String discountName, String level, String applicability) throws SQLException {
-        String insert_str = "insert into Discount values(?, ?, ?, ?)";
-
-        System.out.println("Create Statement...");
-        try (PreparedStatement stmt = connection.prepareStatement(insert_str)) {
-            stmt.setString(1, discountName);
-            stmt.setString(2, level);
-            stmt.setString(3, applicability);
-            System.out.println("Execute...");
-            stmt.executeUpdate();
-
-            connection.commit();
-            System.out.println("Changes Committed");
+//Query2 GetIphoneInfo(Select)
+public ArrayList<String> getPhoneInfo(){
+    try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+            "root", "990428");
+         Statement stmt = cont.createStatement();
+    ) {
+        String strSelect = "select im.name, fc.color, fc.storage from iphonemanufacturedin2 im, featurescontains fc " +
+                "where im.phoneID = fc.phoneID";
+        ResultSet rst = stmt.executeQuery(strSelect);
+        System.out.println("The records selected are:");
+        int rowCount = 0;
+        ArrayList<String> info = new ArrayList<>();
+        while (rst.next()) {
+            String nm = rst.getString("name");
+            String cr = rst.getString("color");
+            String st = rst.getString("storage");
+            String together = nm + "," + cr + "," + st;
+            info.add(together);
+            System.out.println(nm + ", " + cr + ", " + st);
+            ++rowCount;
         }
+    System.out.println("Total number of records = " + rowCount);
+        return info;
+
+} catch (SQLException ex) {
+        ex.printStackTrace();
     }
+    return null;
+}
+
 }
 
 
