@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 public class Result {
 
-    public static ArrayList<String> getResultAll() {
-        ArrayList<String> results = AppleProductDataBase.getPhoneInfo();
-        return results;
-    }
+   public static ArrayList<String> resultsAll = AppleProductDataBase.getPhoneInfo();
+
 }

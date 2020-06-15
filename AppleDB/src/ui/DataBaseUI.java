@@ -31,8 +31,9 @@ public class DataBaseUI extends JFrame implements ActionListener {
     private JCheckBox yibaershiba;
     private JButton apply;
     private JButton priceLTHApply;
+    public static ArrayList<String> resultsAll = AppleProductDataBase.getPhoneInfo();
 
-    private final JLabel test = new JLabel("good");
+  //  private final JLabel test = new JLabel("good");
 
 //    public static void getResultsAll() {
 //        results = AppleProductDataBase.getPhoneInfo();
@@ -54,7 +55,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                // getResultsAll();
 
-                new ResultTable(Result.getResultAll());
+                new ResultTable(resultsAll);
             }
         });
         apply.setText("Apply");
