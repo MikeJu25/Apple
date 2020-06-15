@@ -83,6 +83,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
         add(panel, BorderLayout.CENTER);
         pack();
 
+        setLocation(560, 350);
         setTitle("Filter");
         setSize(450, 250);
         setVisible(true);

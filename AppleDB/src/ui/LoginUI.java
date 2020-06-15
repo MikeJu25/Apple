@@ -99,14 +99,16 @@ public class LoginUI extends JFrame implements ActionListener {
         userName = userNameText.getText();
         playSound("./data/buzzer.wav");
 
-        if (checkNameLegal(userName)) {
-            new TooLongNameWindow();
-
-        } else if (Objects.equals(userName, "")) {
+        if (Objects.equals(userName, "")) {
             new EmptyNameWindow();
 
-        } else {
+        } if (userName.equals("feng0025")) {
             new DataBaseUI();
+            setVisible(false);
+
+        } else {
+            new TooLongNameWindow();
+
         }
 
     }
