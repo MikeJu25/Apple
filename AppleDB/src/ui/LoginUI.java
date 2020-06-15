@@ -23,6 +23,7 @@ public class LoginUI extends JFrame implements ActionListener {
     private JLabel message;
     private JLabel tooLongNameWarning;
     private JLabel emptyNameWarning;
+    private JLabel blankLabel;
 
     private static JTextField userNameText;
     private static JTextField passwordText;
@@ -34,23 +35,25 @@ public class LoginUI extends JFrame implements ActionListener {
         add(panel);
 
         userLabel = new JLabel();
-        userLabel.setText("       Username: ");
+        userLabel.setText("  Username: ");
+        //userLabel.setFont(new Font("Serif", Font.PLAIN, 30));
         userNameText = new JTextField();
-        userNameText.setSize(300,100);
+        userNameText.setPreferredSize(new Dimension(200,40));
 
         passwordLabel = new JLabel();
-        passwordLabel.setText("       Password: ");
+        passwordLabel.setText("  Password: ");
+        //passwordLabel.setFont(new Font("Serif", Font.PLAIN, 30));
         passwordText = new JTextField();
-        passwordText.setSize(300,100);
+        passwordText.setPreferredSize(new Dimension(200,40));
 
-        tooLongNameWarning = new JLabel();
-        tooLongNameWarning.setText("Your username or password is incorrect. Please retry!");
-        emptyNameWarning = new JLabel("Please enter a valid combination of username and password!");
+        blankLabel = new JLabel();
+        blankLabel.setText("      ");
 
-        submit = new JButton("LOG IN");
+        submit = new JButton("              LOG IN              ");
+        submit.setSize(200, 50);
 
         panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+        //panel.setLayout(new GridLayout(3,1));
         panel.add(userLabel);
         panel.add(userNameText);
         panel.add(passwordLabel);
@@ -62,21 +65,16 @@ public class LoginUI extends JFrame implements ActionListener {
         add(panel, BorderLayout.CENTER);
         pack();
 
-        setSize(new Dimension(400, 500));
-        setResizable(true);
-        setLocation(500, 300);
-        setTitle("Name Input");
+        setSize(new Dimension(300, 160));
+        setResizable(false);
+        setLocation(560, 350);
+        setTitle("Apple Product Database");
         setVisible(true);
 
     }
 
-    public boolean checkNameLegal(String s) throws TooLongName {
-        //names = new ArrayList<String>();
-        if (s.length() > 10) {
-            throw new TooLongName();
-        } else {
-            return true;
-        }
+    public boolean checkNameLegal(String s) {
+        return (s.length() > 10);
     }
 
     static void playSound(String soundName) {
@@ -95,24 +93,20 @@ public class LoginUI extends JFrame implements ActionListener {
     // EFFECTS: When submit is clicked, if input is null, print the error message to the panel; if input is longer
     //          than 10 characters, print the warning message to the panel; otherwise get into a new membership UI
     public void actionPerformed(ActionEvent ae) {
+        tooLongNameWarning = new JLabel();
+        tooLongNameWarning.setText("   Your username or password is incorrect.");
+        emptyNameWarning = new JLabel("           Invalid input.");
         userName = userNameText.getText();
         playSound("./data/buzzer.wav");
-        if (Objects.equals(userName, "")) {
-            panel.add(emptyNameWarning);
-        }
-        try {
-            if (checkNameLegal(userName)) {
-                dispose();
 
-                //new MembershipUI(this);
+        if (checkNameLegal(userName)) {
+            new TooLongNameWindow();
 
-            }
-        } catch (TooLongName tooLongName) {
-            // setSize(450, 350);
-            panel.add(tooLongNameWarning);
-            pack();
-//        } catch (RepeatedName repeatedName) {
-//           // repeatedName.printStackTrace();
+        } else if (Objects.equals(userName, "")) {
+            new EmptyNameWindow();
+
+        } else {
+            new DataBaseUI();
         }
 
     }

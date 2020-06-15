@@ -18,7 +18,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
     String[] strings = { "High to Low", "Low to High", "Interval"};
 
     DataBaseUI() {
-        panel = new JPanel(new GridLayout(3,1));
+        panel = new JPanel();
         add(panel);
 
        //filter = new JLabel("Filter");
