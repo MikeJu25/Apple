@@ -35,7 +35,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
         apply = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new EmptyNameWindow();
+                new ResultTable();
             }
         });
         apply.setText("Apply");
@@ -66,7 +66,16 @@ public class DataBaseUI extends JFrame implements ActionListener {
 
         price = new JComboBox(priceStrings);
         price.setSelectedIndex(2);
-        price.addActionListener(this);
+        price.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedPrice = (String) price.getSelectedItem();
+                if (selectedPrice == "Low to High") {
+
+                }
+            }
+        });
+
 
         year = new JComboBox(yearStrings);
         year.setSelectedIndex(2);
