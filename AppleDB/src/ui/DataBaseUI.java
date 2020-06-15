@@ -23,8 +23,6 @@ public class DataBaseUI extends JFrame implements ActionListener {
     private JCheckBox liushisi;
     private JCheckBox yibaershiba;
     private JButton apply;
-//    private ActionListener actionListener1;
-//    private ActionListener actionListener2;
 
     private final JLabel test = new JLabel("good");
 
@@ -34,15 +32,14 @@ public class DataBaseUI extends JFrame implements ActionListener {
 
     DataBaseUI() {
 //        panel = new JPanel();
-        apply = new JButton("Apply");
-        apply.addActionListener(new ActionListener() {
+        apply = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new EmptyNameWindow();
             }
         });
+        apply.setText("Apply");
         add(apply);
-       // apply.addActionListener(this);
 
         panel = new JPanel(new GridLayout(5, 1));
         add(panel);
@@ -106,17 +103,16 @@ public class DataBaseUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 //        JButton applyClicked = (JButton) e.getSource();
-        JComboBox comboBox = (JComboBox) e.getSource();
-
-//        if (applyClicked.getText() == "Apply") {
-//            new EmptyNameWindow();
+//        JComboBox comboBox = (JComboBox) e.getSource();
+//
+//        if (applyClicked.getText().equals("Apply")) {
 //            System.out.println(comboBox.getSelectedIndex());
 //            if (comboBox.getSelectedItem() == "Low to High") {
 //                new EmptyNameWindow();
 //            }
 //        } else {
 //
-        }
+//        }
     }
-
+}
 
