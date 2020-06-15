@@ -35,7 +35,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
         apply = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new EmptyNameWindow();
+                new ResultTable();
             }
         });
         apply.setText("Apply");
