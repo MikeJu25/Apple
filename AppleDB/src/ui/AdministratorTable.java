@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AdministratorTable extends JFrame implements ActionListener {
-
+    
     AdministratorTable(){
         JPanel panel = new JPanel();
         add(panel);
