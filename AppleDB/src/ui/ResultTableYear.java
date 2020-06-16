@@ -9,12 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class ResultTable extends JFrame implements ActionListener{
+public class ResultTableYear extends JFrame implements ActionListener{
     //public Result result = new Result();
-   // private static ArrayList<String> results = new ArrayList<String>();
+    // private static ArrayList<String> results = new ArrayList<String>();
 
 
-    ResultTable(ArrayList<String> results){
+    ResultTableYear(ArrayList<String> results){
 
         JPanel panel = new JPanel();
         JButton back = new JButton("Return");
@@ -22,23 +22,23 @@ public class ResultTable extends JFrame implements ActionListener{
         add(panel);
 
         JButton label1 = new JButton(results.get(0));
+        // System.out.println(results.get(0));
         JButton label2 = new JButton(results.get(1));
-        if (results.size() > 2) {
-            JButton label3 = new JButton(results.get(2));
-            JButton label4 = new JButton(results.get(3));
-            JButton label5 = new JButton(results.get(4));
 
-            panel.add(label3);
-            panel.add(label4);
-            panel.add(label5);
-           // panel.add(back);
-            label3.addActionListener(this);
-            label4.addActionListener(this);
-            label5.addActionListener(this);
-           //back.addActionListener(this);
-        }
 
- //       JButton label6 = new JButton(results.get(6));
+
+        panel.add(label1);
+        panel.add(label2);
+
+
+        panel.add(back);
+        label1.addActionListener(this);
+        label2.addActionListener(this);
+
+        back.addActionListener(this);
+
+
+        //       JButton label6 = new JButton(results.get(6));
 //        JButton label7 = new JButton(getResult(7));
 //        JButton label8 = new JButton("                                                            ");
 //        JButton label9 = new JButton("                                                            ");
@@ -54,13 +54,10 @@ public class ResultTable extends JFrame implements ActionListener{
 //        JButton label19 = new JButton("                                                            ");
 //        JButton label20 = new JButton("                                                            ");
 
-        panel.add(label1);
-        panel.add(label2);
-        panel.add(back);
 
 
-        label1.addActionListener(this);
-        label2.addActionListener(this);
+
+
 
 
 //        panel.add(label6);
@@ -78,7 +75,7 @@ public class ResultTable extends JFrame implements ActionListener{
 //        panel.add(label18);
 //        panel.add(label19);
 //        panel.add(label20);
-        
+
         setSize(new Dimension(300, 700));
         setResizable(false);
         setLocation(600, 100);
