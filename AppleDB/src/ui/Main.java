@@ -10,5 +10,8 @@ public class Main {
         //new ComparisonSuperTable();
         //new ModelInformationTable5();
         new AdministratorTable();
+
+
+        
     }
 }
