@@ -69,6 +69,37 @@ public static ArrayList<String> getPhoneInfo(){
     return null;
 }
 
+    //Query4 updateDiscountLevel(update)
+    public static ArrayList<String> updateDl(String target){
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
+                "root", "q12345678");
+             Statement stmt = cont.createStatement();
+        ) {
+            String uQuery = "UPDATE Discount d SET level= 0.8 WHERE d.discountName = target";
+            int countUpDate = stmt.executeUpdate(uQuery);
+
+            String strSelect = "select * from Discount";
+            ResultSet rst = stmt.executeQuery(strSelect);
+            System.out.println("The records selected are:");
+            int rowCount = 0;
+            ArrayList<String> info = new ArrayList<>();
+            while (rst.next()) {
+                String dn = rst.getString("discountName");
+                String lev = rst.getString("level");
+                String al = rst.getString("applicability");
+                System.out.println(dn + ", " + lev + ", " + al);
+                String together = dn + ", " + lev + ", " + al;
+                info.add(together);
+                ++rowCount;
+            }
+            System.out.println("Total number of records = " + rowCount);
+            return info;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
     //Query6 priceHighToLow
     public static ArrayList<String> priceHighToLow(){
         try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
@@ -132,7 +163,33 @@ public static ArrayList<String> getPhoneInfo(){
         return null;
     }
 
-
+    //Query11 selectDiscount(select)
+    public static ArrayList<String> selectDiscount(){
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
+                "root", "q12345678");
+             Statement stmt = cont.createStatement();
+        ) {
+            String strSelect = "select * from Discount";
+            ResultSet rst = stmt.executeQuery(strSelect);
+            System.out.println("The records selected are:");
+            int rowCount = 0;
+            ArrayList<String> info = new ArrayList<>();
+            while (rst.next()) {
+                String dn = rst.getString("discountName");
+                String lev = rst.getString("level");
+                String al = rst.getString("applicability");
+                System.out.println(dn + ", " + lev + ", " + al);
+                String together = dn + ", " + lev + ", " + al;
+                info.add(together);
+                ++rowCount;
+            }
+            System.out.println("Total number of records = " + rowCount);
+            return info;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 
     }
 

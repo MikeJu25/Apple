@@ -11,6 +11,7 @@ public class DiscountDeleteTable extends JFrame{
         JLabel label = new JLabel("Please enter the name of discount to delete: ");
         JTextField text = new JTextField("                 Enter Here                  ");
         JButton button = new JButton("Delete Discount");
+        button.setText("");
 
         panel.add(label);
         panel.add(text);

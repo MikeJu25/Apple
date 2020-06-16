@@ -12,6 +12,7 @@ public class DiscountUpdateTable extends JFrame{
 
         JLabel label = new JLabel("        Please enter the information below:             ");
         JTextField text1 = new JTextField("  Discount Name  ");
+        text1.setText("  Discount Name  ");
         JTextField text2 = new JTextField("  New Discount Level  ");
 
 

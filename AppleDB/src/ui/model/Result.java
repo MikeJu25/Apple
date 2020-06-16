@@ -13,6 +13,8 @@ public class Result {
     public static ArrayList<String> resultsPLTH = AppleProductDataBase.priceHighToLow();
     public static ArrayList<String> resultsYNTO64 = AppleProductDataBase.newestToOldest();
 
+    public static ArrayList<String> resultsDiscount = AppleProductDataBase.selectDiscount();
+
     public static ArrayList<String> getResultAll() {
         ArrayList<String> results = AppleProductDataBase.getPhoneInfo();
         return results;

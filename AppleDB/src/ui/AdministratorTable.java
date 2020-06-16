@@ -25,7 +25,7 @@ public class AdministratorTable extends JFrame implements ActionListener {
         JButton editDiscount = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ResultDiscountTable();
+                new DiscountResultTable();
                 new DiscountDeleteTable();
                 new DiscountInsertTable();
                 new DiscountUpdateTable();

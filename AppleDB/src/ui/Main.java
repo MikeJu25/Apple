@@ -3,12 +3,13 @@ package ui;
 
 
 import SQL.AppleProductDataBase;
+import sun.rmi.runtime.Log;
 
 public class Main {
 
 
     public static void main(String[] args) {
-        new LoginUI();
-
+        //System.out.println(AppleProductDataBase.selectDiscount().get(1));
+        new AdministratorTable();
     }
 }
