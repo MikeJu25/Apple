@@ -70,12 +70,12 @@ public static ArrayList<String> getPhoneInfo(){
 }
 
     //Query4 updateDiscountLevel(update)
-    public static ArrayList<String> updateDl(String target){
+    public static ArrayList<String> updateDl(String original, String target){
         try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
                 "root", "q12345678");
              Statement stmt = cont.createStatement();
         ) {
-            String uQuery = "UPDATE Discount d SET level= 0.8 WHERE d.discountName = target";
+            String uQuery = "UPDATE Discount d SET level= ? WHERE d.discountName = ?";
             int countUpDate = stmt.executeUpdate(uQuery);
 
             String strSelect = "select * from Discount";

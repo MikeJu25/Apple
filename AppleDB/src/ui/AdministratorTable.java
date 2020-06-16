@@ -1,5 +1,7 @@
 package ui;
 
+import ui.model.Result;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -25,7 +27,7 @@ public class AdministratorTable extends JFrame implements ActionListener {
         JButton editDiscount = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new DiscountResultTable();
+                new DiscountResultTable(Result.resultsDiscount);
                 new DiscountDeleteTable();
                 new DiscountInsertTable();
                 new DiscountUpdateTable();

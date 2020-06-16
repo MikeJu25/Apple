@@ -1,26 +1,35 @@
 package ui;
 
+import SQL.AppleProductDataBase;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class DiscountUpdateTable extends JFrame{
+public class DiscountUpdateTable extends JFrame implements ActionListener {
 
+    JTextField discountName;
+    JTextField newLevel;
+    private String name;
+    private String level;
 
     DiscountUpdateTable() {
         JPanel panel = new JPanel();
         add(panel);
 
         JLabel label = new JLabel("        Please enter the information below:             ");
-        JTextField text1 = new JTextField("  Discount Name  ");
-        text1.setText("  Discount Name  ");
-        JTextField text2 = new JTextField("  New Discount Level  ");
-
+        discountName = new JTextField("  Discount Name  ");
+        discountName.addActionListener(this);
+      //  discountName.setText("  Discount Name  ");
+        newLevel = new JTextField("  New Discount Level  ");
+        newLevel.addActionListener(this);
 
         JButton button = new JButton(" Update Discount ");
-
         panel.add(label);
-        panel.add(text1);
-        panel.add(text2);
+        panel.add(discountName);
+        panel.add(newLevel);
         panel.add(button);
 
         setSize(new Dimension(380, 115));
@@ -31,5 +40,18 @@ public class DiscountUpdateTable extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JTextField source = (JTextField) e.getSource();
+        if (source.getText() == "discountName") {
+            name = discountName.getText();
+            //System.out.println(discountName.getText());
+        }
+        if (source.getText() == "newLevel") {
+            level = newLevel.getText();
+        }
+        new DiscountResultTable(AppleProductDataBase.updateDl(level,name));
     }
 }

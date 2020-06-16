@@ -4,19 +4,20 @@ import ui.model.Result;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class DiscountResultTable extends JFrame{
 
-    DiscountResultTable(){
+    DiscountResultTable(ArrayList<String> results){
 
         JPanel panel = new JPanel();
         add(panel);
 
-        JButton label1 = new JButton(Result.resultsDiscount.get(0));
-        JButton label2 = new JButton(Result.resultsDiscount.get(1));
-        JButton label3 = new JButton(Result.resultsDiscount.get(2));
-        JButton label4 = new JButton(Result.resultsDiscount.get(3));
-        JButton label5 = new JButton(Result.resultsDiscount.get(4));
+        JButton label1 = new JButton(results.get(0));
+        JButton label2 = new JButton(results.get(1));
+        JButton label3 = new JButton(results.get(2));
+        JButton label4 = new JButton(results.get(3));
+        JButton label5 = new JButton(results.get(4));
 //        JButton label6 = new JButton(Result.resultsDiscount.get(5));
 //        JButton label7 = new JButton("                                                            ");
 //        JButton label8 = new JButton("                                                            ");
