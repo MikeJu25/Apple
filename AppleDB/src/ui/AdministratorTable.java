@@ -10,20 +10,42 @@ public class AdministratorTable extends JFrame implements ActionListener {
     AdministratorTable(){
         JPanel panel = new JPanel();
         add(panel);
-        panel.setLayout(new GridLayout(2,1));
 
-        JLabel label = new JLabel();
-        label.setText("            Get ready to manipulate some data!");
-        JButton button = new JButton("     View All Models     ");
+        JLabel label = new JLabel("What would you like to do?");
+
+        JButton editPhone = new JButton(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ResultProductTable();
+                setVisible(false);
+            }
+        });
+        editPhone.setText("   Update Product Database   ");
+
+        JButton editDiscount = new JButton(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ResultDiscountTable();
+                new DiscountDeleteTable();
+                new DiscountInsertTable();
+                new DiscountUpdateTable();
+                setVisible(false);
+            }
+        });
+        editDiscount.setText("Update Promotion Discounts");
+
+
+        JButton view = new JButton("  View All Existing Products  ");
+        view.addActionListener(this);
 
         panel.add(label);
-        panel.add(button);
-        button.addActionListener(this);
+        panel.add(editPhone);
+        panel.add(editDiscount);
+        panel.add(view);
 
-
-        setSize(new Dimension(600, 400));
+        setSize(new Dimension(230, 150));
         setResizable(false);
-        setLocation(420, 250);
+        setLocation(600, 340);
         setTitle("Administrator Table");
         setVisible(true);
 
