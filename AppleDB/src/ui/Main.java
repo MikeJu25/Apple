@@ -10,9 +10,10 @@ public class Main {
 
     public static void main(String[] args) {
         //System.out.println(AppleProductDataBase.selectDiscount().get(1));
-        //new AdministratorTable();
-        for (int i = 0; i < 10; i++) {
-            System.out.println(AppleProductDataBase.updateDl("0.2","Staff30").get(i));
-        }
+        new AdministratorTable();
+
+          // System.out.println(AppleProductDataBase.updateDl("0.4","SAVE10").get(3));
+
     }
-}
+    }
+

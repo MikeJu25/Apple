@@ -8,25 +8,39 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class DiscountUpdateTable extends JFrame implements ActionListener {
+public class DiscountUpdateTable extends JFrame implements ActionListener{
 
     JTextField discountName;
     JTextField newLevel;
-    private String name;
-    private String level;
+    static String name;
+    static String level;
 
     DiscountUpdateTable() {
         JPanel panel = new JPanel();
         add(panel);
 
         JLabel label = new JLabel("        Please enter the information below:             ");
-        discountName = new JTextField("  Discount Name  ");
-        discountName.addActionListener(this);
-      //  discountName.setText("  Discount Name  ");
-        newLevel = new JTextField("  New Discount Level  ");
-        newLevel.addActionListener(this);
+        discountName = new JTextField();
+        //discountName.addActionListener(this);
+        discountName.setPreferredSize(new Dimension(200,40));
+        //  discountName.setText("  Discount Name  ");
+        newLevel = new JTextField();
+         newLevel.setPreferredSize(new Dimension(200,40));
+        //newLevel.addActionListener(this);
 
-        JButton button = new JButton(" Update Discount ");
+
+        //System.out.println(name);
+
+        //System.out.println(level);
+
+        JButton button = new JButton();
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                new DiscountResultTable(AppleProductDataBase.updateDl(level, name));
+//            }
+//        });
+        button.setText(" Update Discount ");
+        button.addActionListener(this);
         panel.add(label);
         panel.add(discountName);
         panel.add(newLevel);
@@ -42,16 +56,13 @@ public class DiscountUpdateTable extends JFrame implements ActionListener {
 
     }
 
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        JTextField source = (JTextField) e.getSource();
-        if (source.getText() == "discountName") {
-            name = discountName.getText();
-            //System.out.println(discountName.getText());
+        name = discountName.getText();
+        if (name == "SAVE10") {
+            System.out.println("YEsd");
         }
-        if (source.getText() == "newLevel") {
-            level = newLevel.getText();
-        }
-        new DiscountResultTable(AppleProductDataBase.updateDl(level,name));
+        //level = newLevel.getText();
     }
 }
