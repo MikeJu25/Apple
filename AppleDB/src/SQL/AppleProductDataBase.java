@@ -11,8 +11,8 @@ public class AppleProductDataBase {
 
     //Query1 AddCustomer(Insertion)
 public static void addDiscount(){
-    try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
-            "root", "Guyingyuyi1!");
+    try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
+            "root", "q12345678");
          Statement stmt = cont.createStatement();
     ) {
         String query1 = "insert into Discount values ('a', 'b', 'c')";
@@ -40,11 +40,11 @@ public static void addDiscount(){
 
 //Query2 GetIphoneInfo(Select)
 public static ArrayList<String> getPhoneInfo(){
-    try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
-            "root", "Guyingyuyi1!");
+    try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
+            "root", "q12345678");
          Statement stmt = cont.createStatement();
     ) {
-        String strSelect = "select im.name, fc.color, fc.storage from iphonemanufacturedin2 im, featurescontains fc " +
+        String strSelect = "select im.name, im.phoneID, fc.color, fc.storage from iphonemanufacturedin2 im, featurescontains fc " +
                 "where im.phoneID = fc.phoneID";
         ResultSet rst = stmt.executeQuery(strSelect);
         System.out.println("The records selected are:");
@@ -52,9 +52,10 @@ public static ArrayList<String> getPhoneInfo(){
         ArrayList<String> info = new ArrayList<>();
         while (rst.next()) {
             String nm = rst.getString("name");
+            String id = rst.getString("phoneID");
             String cr = rst.getString("color");
             String st = rst.getString("storage");
-            String together = nm + ", " + cr + ", " + st + "GB";
+            String together = nm + ", ID" + id + ", " + cr + ", " + st + "GB";
             info.add(together);
            // System.out.println(nm + ", " + cr + ", " + st);
             ++rowCount;
@@ -70,13 +71,11 @@ public static ArrayList<String> getPhoneInfo(){
 
     //Query6 priceHighToLow
     public static ArrayList<String> priceHighToLow(){
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
-                "root", "Guyingyuyi1!");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
+                "root", "q12345678");
              Statement stmt = cont.createStatement();
         ) {
-            String oQuery = "select im.name, im.phoneID," +
-                    " im.price, fc.color, fc.storage from iphonemanufacturedin2 im," +
-                    " featurescontains fc where im.phoneID = fc.phoneID Order by price";
+            String oQuery = "select name, phoneID, year, price from iphonemanufacturedin2 order by price";
             ResultSet rst = stmt.executeQuery(oQuery);
             System.out.println("The records selected are:");
             int rowCount = 0;
@@ -85,11 +84,11 @@ public static ArrayList<String> getPhoneInfo(){
                 String nm = rst.getString("name");
                 String phid = rst.getString("phoneID");
                 String pc = rst.getString("price");
-                String cl = rst.getString("color");
-                String st = rst.getString("storage");
-                String together = nm + ", " + phid + ", " + pc + ", " + cl + ", " + st;
+                String yr = rst.getString("year");
+
+                String together = nm + ", ID" + phid + ", $" + pc + ", " + yr ;
                 info.add(together);
-                System.out.println(nm + ", " + phid + ", " + pc + ", " + cl + ", " + st);
+               // System.out.println(nm + ", " + phid + ", " + pc + ", " + yr);
                 ++rowCount;
             }
             System.out.println("Total number of records = " + rowCount);
@@ -100,7 +99,44 @@ public static ArrayList<String> getPhoneInfo(){
         return null;
     }
 
-}
+    //Query7 newestToOldest
+    public static ArrayList<String> newestToOldest(){
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
+                "root", "q12345678");
+             Statement stmt = cont.createStatement();
+        ) {
+            String oQuery = "select distinct im.name, im.phoneID, im.price, im.year " +
+                    "from iphonemanufacturedin2 im, featurescontains fc " +
+                    "where fc.storage = '16' AND fc.phoneID = im.phoneID" +
+                    " Order by year desc";
+            ResultSet rst = stmt.executeQuery(oQuery);
+            System.out.println("The records selected are:");
+            int rowCount = 0;
+            ArrayList<String> info = new ArrayList<>();
+            while (rst.next()) {
+                String nm = rst.getString("name");
+                String phid = rst.getString("phoneID");
+                String pc = rst.getString("price");
+                String yr = rst.getString("year");
+
+                String together = nm + ", " + phid + ", " + pc + ", " + yr;
+                info.add(together);
+                //System.out.println(nm + ", " + phid + ", " + pc + ", " +yr);
+                ++rowCount;
+            }
+            System.out.println("Total number of records = " + rowCount);
+            return info;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+
+
+    }
+
+
 
 
 

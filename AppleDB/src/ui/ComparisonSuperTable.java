@@ -15,7 +15,5 @@ public class ComparisonSuperTable {
         table4.setLocation(840,130);
         table5.setLocation(1120,130);
 
-
-
     }
 }

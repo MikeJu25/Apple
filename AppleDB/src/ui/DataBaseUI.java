@@ -31,6 +31,8 @@ public class DataBaseUI extends JFrame implements ActionListener {
     private JCheckBox yibaershiba;
     private JButton apply;
     private JButton priceLTHApply;
+    private JButton yearNTO64GB;
+    private Boolean liushisiSelected;
 
   //  private final JLabel test = new JLabel("good");
 
@@ -53,7 +55,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                // getResultsAll();
-
+                dispose();
                 new ResultTable(Result.resultsAll);
             }
         });
@@ -67,6 +69,14 @@ public class DataBaseUI extends JFrame implements ActionListener {
             }
         });
         priceLTHApply.setText("Apply");
+
+        yearNTO64GB = new JButton(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ResultTable(Result.resultsYNTO64);
+            }
+        });
+        yearNTO64GB.setText("Apply");
 
 
         panel = new JPanel(new GridLayout(5, 1));
@@ -91,7 +101,19 @@ public class DataBaseUI extends JFrame implements ActionListener {
         black = new JCheckBox("black");
         gray = new JCheckBox("gray");
         shiliu = new JCheckBox("16GB");
-        liushisi = new JCheckBox("64GB");
+        liushisi = new JCheckBox(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AbstractButton abstractButton = (AbstractButton) e.getSource();
+                if (abstractButton.isSelected()) {
+                   // System.out.println("Yes");
+                    liushisiSelected = true;
+                }
+            }
+        });
+        liushisi.setText("64GB");
+
+
         yibaershiba = new JCheckBox("128GB");
 
 
@@ -114,7 +136,23 @@ public class DataBaseUI extends JFrame implements ActionListener {
 
         year = new JComboBox(yearStrings);
         year.setSelectedIndex(2);
-        year.addActionListener(this);
+        year.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedYear = (String) year.getSelectedItem();
+                if (selectedYear == "Newest to Oldest") {
+                    System.out.println("Yes");
+                    if (liushisiSelected) {
+                        System.out.println("Yes");
+                        panel4.remove(apply);
+                        panel4.add(yearNTO64GB);
+                        pack();
+                        setSize(600, 400);
+                    }
+                }
+            }
+        });
+
 
         panel.add(yearTitle);
         panel.add(year);
