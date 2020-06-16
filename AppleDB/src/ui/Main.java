@@ -6,8 +6,9 @@ public class Main {
 
 
     public static void main(String[] args) {
-        new LoginUI();
+        //new LoginUI();
         //new ComparisonSuperTable();
         //new ModelInformationTable5();
+        new AdministratorTable();
     }
 }
