@@ -16,7 +16,7 @@ public class DiscountDeleteTable extends JFrame implements ActionListener {
         add(panel);
 
         JLabel label = new JLabel("Please enter the name of discount to delete: ");
-        discountName = new JTextField("                 Enter Here                  ");
+        discountName = new JTextField("              Enter Here                  ");
         JButton button = new JButton("Delete Discount");
         button.addActionListener(this);
 
