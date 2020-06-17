@@ -25,6 +25,10 @@ public class ResultTableProducts extends JFrame implements ActionListener{
         JButton label4 = new JButton();
         JButton label5 = new JButton();
         JButton label6 = new JButton();
+        JButton label7 = new JButton();
+        JButton label8 = new JButton();
+        JButton label9 = new JButton();
+        JButton label10 = new JButton();
         ArrayList<JButton> buttonsBase = new ArrayList<>();
         buttonsBase.add(label1);
         buttonsBase.add(label2);
@@ -32,6 +36,10 @@ public class ResultTableProducts extends JFrame implements ActionListener{
         buttonsBase.add(label4);
         buttonsBase.add(label5);
         buttonsBase.add(label6);
+        buttonsBase.add(label7);
+        buttonsBase.add(label8);
+        buttonsBase.add(label9);
+        buttonsBase.add(label10);
 
         Integer size = results.size();
         labels = new ArrayList<>();
