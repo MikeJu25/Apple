@@ -60,7 +60,7 @@ public class DiscountUpdateTable extends JFrame implements ActionListener {
         name = discountName.getText();
         level = newLevel.getText();
         hasUpdated = true;
-        new DiscountResultTable(AppleProductDataBase.updateDl(level, name));
+        new DiscountResultTable(AppleProductDataBase.updateDl(level, name),"New Table After Update");
     }
 }
 

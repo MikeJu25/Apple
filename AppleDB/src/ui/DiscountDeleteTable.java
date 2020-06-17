@@ -40,6 +40,6 @@ public class DiscountDeleteTable extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
        String name = discountName.getText();
-       new DiscountResultTable(AppleProductDataBase.removeDiscount(name));
+       new DiscountResultTable(AppleProductDataBase.removeDiscount(name),"New Table After Deletion");
     }
 }

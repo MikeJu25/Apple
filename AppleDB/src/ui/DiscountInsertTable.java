@@ -47,6 +47,6 @@ public class DiscountInsertTable extends JFrame implements ActionListener {
         String insertLevel = level.getText();
         String applica = applicability.getText();
 
-        new DiscountResultTable(AppleProductDataBase.addDiscount(name,insertLevel,applica));
+        new DiscountResultTable(AppleProductDataBase.addDiscount(name,insertLevel,applica),"New Table After Insertion");
     }
 }

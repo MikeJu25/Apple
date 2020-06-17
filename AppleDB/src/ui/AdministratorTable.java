@@ -28,7 +28,7 @@ public class AdministratorTable extends JFrame implements ActionListener {
         JButton editDiscount = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new DiscountResultTable(Result.resultsDiscount);
+                new DiscountResultTable(Result.resultsDiscount, "All Available Discounts");
 //                if (DiscountUpdateTable.hasUpdated) {
 //                    System.out.println("yes");
 //                    dr.dispose();
@@ -55,7 +55,7 @@ public class AdministratorTable extends JFrame implements ActionListener {
         JButton viewAboveAverage = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new DiscountResultTable(AppleProductDataBase.nestedQuery());
+                new DiscountResultTable(AppleProductDataBase.nestedQuery(),"All iPhones Price Above Average");
                 setVisible(false);
             }
         });

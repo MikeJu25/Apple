@@ -35,6 +35,7 @@ public class LoginUI extends JFrame implements ActionListener {
         JButton visitor = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setVisible(false);
                  new DataBaseUI();
             }
         });

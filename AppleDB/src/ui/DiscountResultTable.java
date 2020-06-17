@@ -15,7 +15,7 @@ public class DiscountResultTable extends JFrame implements ActionListener {
 //    }
     ArrayList<JButton> labels;
 
-    DiscountResultTable(ArrayList<String> results){
+    DiscountResultTable(ArrayList<String> results, String titlte){
 
 
         JPanel panel = new JPanel();
@@ -43,7 +43,11 @@ public class DiscountResultTable extends JFrame implements ActionListener {
             panel.add(labels.get(i));
             labels.get(i).setText(results.get(i));
         }
+
         JButton back = new JButton("    Return     ");
+        panel.add(back);
+        back.addActionListener(this);
+
 //        JButton label1 = new JButton(results.get(0));
 //        JButton label2 = new JButton(results.get(1));
 //        JButton label3 = new JButton(results.get(2));
@@ -69,14 +73,15 @@ public class DiscountResultTable extends JFrame implements ActionListener {
         setSize(new Dimension(300, 375));
         setResizable(false);
         setLocation(400, 270);
-        setTitle("Result Table");
+        setTitle(titlte);
         setVisible(true);
-
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        dispose();
+        new AdministratorTable();
     }
 }

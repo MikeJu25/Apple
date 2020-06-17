@@ -3,7 +3,7 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
-public class ModelInformationTable1 extends JFrame {
+public class ModelInformationTable1 extends ModelInformationTable {
     ModelInformationTable1() {
 
         JPanel panel = new JPanel();
