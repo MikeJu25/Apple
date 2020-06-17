@@ -13,6 +13,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
     private final JPanel panel2;
     private final JPanel panel3;
     private final JPanel panel4;
+    private final JPanel panel5;
     private JLabel empty;
     private JLabel yearTitle;
     private JLabel priceTitle;
@@ -29,6 +30,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
     private JButton apply;
     private JButton priceLTHApply;
     private JButton yearNTO64GB;
+    private JButton back;
     private Boolean liushisiSelected;
 
   //  private final JLabel test = new JLabel("good");
@@ -79,7 +81,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
 
         panel = new JPanel(new GridLayout(5, 1));
         add(panel);
-        this.setLayout(new GridLayout(4, 1));
+        this.setLayout(new GridLayout(5, 1));
         panel2 = new JPanel(new GridLayout(1, 3));
         add(panel2);
         panel3 = new JPanel(new GridLayout(1, 3));
@@ -87,12 +89,22 @@ public class DataBaseUI extends JFrame implements ActionListener {
         panel4 = new JPanel(new GridLayout(1, 3));
         panel4.add(apply);
         add(panel4);
+        panel5 = new JPanel(new GridLayout(1,1));
+        add(panel5);
 
         priceTitle = new JLabel("Price");
         yearTitle = new JLabel("Year");
         storage = new JLabel("Storage");
         color = new JLabel("Color");
         empty = new JLabel("\n");
+        back = new JButton(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new LoginUI();
+            }
+        });
+        back.setText("     Return     ");
 
 
         gold = new JCheckBox("gold");
@@ -169,6 +181,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
         panel2.add(shiliu);
         panel2.add(liushisi);
         panel2.add(yibaershiba);
+        panel5.add(back);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         add(panel, BorderLayout.CENTER);

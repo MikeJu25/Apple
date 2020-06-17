@@ -48,7 +48,7 @@ public class AdministratorTable extends JFrame implements ActionListener {
         JButton viewAboveAverage = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new DiscountResultTable(AppleProductDataBase.nestedQuery(), " All iPhones Above Average Price");
+                new DiscountResultTable(AppleProductDataBase.priceHigherThanAvg(), " All iPhones Above Average Price");
                 setVisible(false);
             }
         });
