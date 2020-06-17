@@ -23,9 +23,6 @@ public class DiscountRedirectTable extends JFrame implements ActionListener {
 //                    System.out.println("yes");
 //                    dr.dispose();
 //                }
-                new DiscountDeleteTable();
-                new DiscountInsertTable();
-                new DiscountUpdateTable();
                 setVisible(false);
             }
         });

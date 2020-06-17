@@ -10,9 +10,10 @@ import java.util.ArrayList;
 
 public class DiscountResultTable extends JFrame implements ActionListener {
 
-//    private JButton addNum(int i) {
-//
-//    }
+    DiscountDeleteTable table1;
+    DiscountInsertTable table2;
+    DiscountUpdateTable table3;
+
     ArrayList<JButton> labels;
 
     DiscountResultTable(ArrayList<String> results, String titlte){
@@ -48,27 +49,6 @@ public class DiscountResultTable extends JFrame implements ActionListener {
         panel.add(back);
         back.addActionListener(this);
 
-//        JButton label1 = new JButton(results.get(0));
-//        JButton label2 = new JButton(results.get(1));
-//        JButton label3 = new JButton(results.get(2));
-//        JButton label4 = new JButton(results.get(3));
-//        JButton label5 = new JButton(results.get(4));
-//        JButton label6 = new JButton(Result.resultsDiscount.get(5));
-//        JButton label7 = new JButton("                                                            ");
-//        JButton label8 = new JButton("                                                            ");
-//        JButton label9 = new JButton("                                                            ");
-//        JButton label10 = new JButton("                                                            ");
-
-//        panel.add(label1);
-//        panel.add(label2);
-//        panel.add(label3);
-//        panel.add(label4);
-//        panel.add(label5);
-//        panel.add(label6);
-//        panel.add(label7);
-//        panel.add(label8);
-//        panel.add(label9);
-//        panel.add(label10);
 
         setSize(new Dimension(300, 375));
         setResizable(false);
@@ -76,12 +56,19 @@ public class DiscountResultTable extends JFrame implements ActionListener {
         setTitle(titlte);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        table1 = new DiscountDeleteTable();
+        table2 = new DiscountInsertTable();
+        table3 = new DiscountUpdateTable();
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
         dispose();
+        table1.setVisible(false);
+        table2.setVisible(false);
+        table3.setVisible(false);
         new AdministratorTable();
     }
 }

@@ -42,7 +42,7 @@ public class AdministratorTable extends JFrame implements ActionListener {
                 setVisible(false);
             }
         });
-        countAll.setText("         Count All Existing iPhone6         ");
+        countAll.setText("          Count All Existing iPhones         ");
 
 
         JButton viewAboveAverage = new JButton(new AbstractAction() {
