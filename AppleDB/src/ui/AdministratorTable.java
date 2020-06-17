@@ -19,7 +19,7 @@ public class AdministratorTable extends JFrame implements ActionListener {
         JButton editPhone = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ResultProductTable();
+                new ResultTableProducts(Result.resultsAll," Editing All iPhones ");
                 setVisible(false);
             }
         });
