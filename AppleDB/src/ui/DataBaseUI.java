@@ -1,15 +1,16 @@
 package ui;
 
+import SQL.AppleProductDataBase;
 import ui.model.Result;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class DataBaseUI extends JFrame implements ActionListener {
-   // public static ArrayList<String> results;
-  //  public Result result;
+
     private final JPanel panel;
     private final JPanel panel2;
     private final JPanel panel3;
@@ -30,9 +31,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
     private JButton apply;
     private JButton priceLTHApply;
     private JButton yearNTO64GB;
-    private JButton comparison;
     private Boolean liushisiSelected;
-
 
   //  private final JLabel test = new JLabel("good");
 
@@ -78,21 +77,18 @@ public class DataBaseUI extends JFrame implements ActionListener {
         });
         yearNTO64GB.setText("Apply");
 
-        comparison = new JButton("Compare All iPhones");
-        comparison.addActionListener(this);
-
 
         panel = new JPanel(new GridLayout(5, 1));
         add(panel);
-        this.setLayout(new GridLayout(5, 1));
+        this.setLayout(new GridLayout(4, 1));
         panel2 = new JPanel(new GridLayout(1, 3));
         add(panel2);
         panel3 = new JPanel(new GridLayout(1, 3));
         add(panel3);
-        panel4 = new JPanel(new GridLayout(1, 1));
+        panel4 = new JPanel(new GridLayout(1, 3));
         panel4.add(apply);
         add(panel4);
-        add(comparison);
+
         priceTitle = new JLabel("Price");
         yearTitle = new JLabel("Year");
         storage = new JLabel("Storage");
@@ -187,10 +183,6 @@ public class DataBaseUI extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton comparisonClicked = (JButton) e.getSource();
-        if (comparisonClicked.getText() == "Compare All iPhones") {
-            new ComparisonTable();
-        }
 //        JButton applyClicked = (JButton) e.getSource();
 //        JComboBox comboBox = (JComboBox) e.getSource();
 //

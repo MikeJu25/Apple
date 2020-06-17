@@ -22,7 +22,7 @@ public class AdministratorTable extends JFrame implements ActionListener {
                 setVisible(false);
             }
         });
-        editPhone.setText("   Update Product Database   ");
+        editPhone.setText("           Update Product Database           ");
 
         JButton editDiscount = new JButton(new AbstractAction() {
             @Override
@@ -38,18 +38,43 @@ public class AdministratorTable extends JFrame implements ActionListener {
                 setVisible(false);
             }
         });
-        editDiscount.setText("Update Promotion Discounts");
+        editDiscount.setText("        Update Promotion Discounts        ");
 
 
-        JButton view = new JButton("  View All Existing Products  ");
+        JButton countAll = new JButton(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CountProductTable();
+                setVisible(false);
+            }
+        });
+        countAll.setText("         Count All Existing Products         ");
+
+
+        JButton viewAboveAverage = new JButton(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AboveAverageTable();
+                setVisible(false);
+            }
+        });
+        viewAboveAverage.setText(" View All Products Above Average Price");
+
+
+
+        JButton view = new JButton("          View All Existing Products          ");
         view.addActionListener(this);
+
+
 
         panel.add(label);
         panel.add(editPhone);
         panel.add(editDiscount);
+        panel.add(countAll);
         panel.add(view);
+        panel.add(viewAboveAverage);
 
-        setSize(new Dimension(230, 150));
+        setSize(new Dimension(300, 220));
         setResizable(false);
         setLocation(600, 340);
         setTitle("Administrator Table");

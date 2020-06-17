@@ -65,7 +65,7 @@ public class DiscountResultTable extends JFrame{
 
         setSize(new Dimension(300, 375));
         setResizable(false);
-        setLocation(400, 250);
+        setLocation(400, 270);
         setTitle("Result Table");
         setVisible(true);
 
