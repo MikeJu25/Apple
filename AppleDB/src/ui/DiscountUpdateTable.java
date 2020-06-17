@@ -44,7 +44,7 @@ public class DiscountUpdateTable extends JFrame implements ActionListener {
         panel.add(newLevel);
         panel.add(button);
 
-        setSize(new Dimension(380, 115));
+        setSize(new Dimension(380, 145));
         setResizable(false);
         setLocation(730, 510);
         setTitle("Update Discount");
