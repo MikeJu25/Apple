@@ -11,6 +11,9 @@ import java.util.ArrayList;
 public class DiscountResultTable extends JFrame implements ActionListener {
 
     ArrayList<JButton> labels;
+    DiscountUpdateTable table1;
+    DiscountInsertTable table2;
+    DiscountDeleteTable table3;
 
     DiscountResultTable(ArrayList<String> results, String titlte){
 
@@ -52,6 +55,12 @@ public class DiscountResultTable extends JFrame implements ActionListener {
         setTitle(titlte);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        table1 = new DiscountUpdateTable();
+        table2 = new DiscountInsertTable();
+        table3 = new DiscountDeleteTable();
+
+
     }
 
 
@@ -59,5 +68,8 @@ public class DiscountResultTable extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         dispose();
         new AdministratorTable();
+        table1.setVisible(false);
+        table2.setVisible(false);
+        table3.setVisible(false);
     }
 }
