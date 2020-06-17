@@ -1,5 +1,7 @@
 package ui;
 
+import SQL.AppleProductDataBase;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,11 +12,12 @@ public class CountProductTable extends JFrame implements ActionListener {
     CountProductTable(){
         JPanel panel = new JPanel();
         add(panel);
-        String numberIs = "The number of existing models is:        ";
+        String numberIs = "The number of existing iPhone6 is:" + AppleProductDataBase.countNumber();
 
         JLabel label = new JLabel();
         label.setText(numberIs);
         JButton button = new JButton("     OK!     ");
+        button.addActionListener(this);
 
         panel.add(label);
         panel.add(button);

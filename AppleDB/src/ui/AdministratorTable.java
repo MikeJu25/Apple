@@ -1,5 +1,6 @@
 package ui;
 
+import SQL.AppleProductDataBase;
 import ui.model.Result;
 
 import javax.swing.*;
@@ -48,19 +49,27 @@ public class AdministratorTable extends JFrame implements ActionListener {
                 setVisible(false);
             }
         });
-        countAll.setText("         Count All Existing Products         ");
+        countAll.setText("         Count All Existing iPhone6         ");
 
 
         JButton viewAboveAverage = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new AboveAverageTable();
+                new DiscountResultTable(AppleProductDataBase.nestedQuery());
                 setVisible(false);
             }
         });
         viewAboveAverage.setText(" View All Products Above Average Price");
 
 
+//        JButton division = new JButton(new AbstractAction() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                new DiscountResultTable(AppleProductDataBase.iphAllDivision());
+//                setVisible(false);
+//            }
+//        });
+//        division.setText(" division");
 
         JButton view = new JButton("          View All Existing Products          ");
         view.addActionListener(this);
@@ -73,6 +82,8 @@ public class AdministratorTable extends JFrame implements ActionListener {
         panel.add(countAll);
         panel.add(view);
         panel.add(viewAboveAverage);
+//        panel.add(division);
+//        pack();
 
         setSize(new Dimension(300, 220));
         setResizable(false);

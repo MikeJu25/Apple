@@ -4,9 +4,11 @@ import ui.model.Result;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class DiscountResultTable extends JFrame{
+public class DiscountResultTable extends JFrame implements ActionListener {
 
 //    private JButton addNum(int i) {
 //
@@ -41,6 +43,7 @@ public class DiscountResultTable extends JFrame{
             panel.add(labels.get(i));
             labels.get(i).setText(results.get(i));
         }
+        JButton back = new JButton("    Return     ");
 //        JButton label1 = new JButton(results.get(0));
 //        JButton label2 = new JButton(results.get(1));
 //        JButton label3 = new JButton(results.get(2));
@@ -72,5 +75,8 @@ public class DiscountResultTable extends JFrame{
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
+    }
 }
