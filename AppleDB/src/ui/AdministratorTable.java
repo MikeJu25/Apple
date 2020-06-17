@@ -28,6 +28,10 @@ public class AdministratorTable extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new DiscountResultTable(Result.resultsDiscount);
+//                if (DiscountUpdateTable.hasUpdated) {
+//                    System.out.println("yes");
+//                    dr.dispose();
+//                }
                 new DiscountDeleteTable();
                 new DiscountInsertTable();
                 new DiscountUpdateTable();

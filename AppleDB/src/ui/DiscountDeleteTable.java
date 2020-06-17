@@ -2,19 +2,22 @@ package ui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class DiscountDeleteTable extends JFrame{
+public class DiscountDeleteTable extends JFrame implements ActionListener {
     DiscountDeleteTable(){
         JPanel panel = new JPanel();
         add(panel);
 
         JLabel label = new JLabel("Please enter the name of discount to delete: ");
-        JTextField text = new JTextField("                 Enter Here                  ");
+        JTextField discountName = new JTextField("                 Enter Here                  ");
         JButton button = new JButton("Delete Discount");
         button.setText("");
+        button.addActionListener(this);
 
         panel.add(label);
-        panel.add(text);
+        panel.add(discountName);
         panel.add(button);
 
         setSize(new Dimension(380, 90));
@@ -28,5 +31,10 @@ public class DiscountDeleteTable extends JFrame{
 
 
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+       String name =
     }
 }

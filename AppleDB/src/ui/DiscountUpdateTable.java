@@ -8,30 +8,28 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class DiscountUpdateTable extends JFrame implements ActionListener{
+public class DiscountUpdateTable extends JFrame implements ActionListener {
 
     JTextField discountName;
     JTextField newLevel;
-    static String name;
-    static String level;
+    private String name;
+    private String level;
+    public static Boolean hasUpdated = false;
 
     DiscountUpdateTable() {
         JPanel panel = new JPanel();
         add(panel);
 
         JLabel label = new JLabel("        Please enter the information below:             ");
-        discountName = new JTextField();
-        //discountName.addActionListener(this);
-        discountName.setPreferredSize(new Dimension(200,40));
-        //  discountName.setText("  Discount Name  ");
-        newLevel = new JTextField();
-         newLevel.setPreferredSize(new Dimension(200,40));
-        //newLevel.addActionListener(this);
 
+        discountName = new JTextField("    Discount Name    ");
 
-        //System.out.println(name);
+        // discountName.addActionListener(this);
+        //discountName.setPreferredSize(new Dimension(100, 40));
 
-        //System.out.println(level);
+        newLevel = new JTextField("    New Level    ");
+       // newLevel.setPreferredSize(new Dimension(100, 40));
+        // newLevel.addActionListener(this);
 
         JButton button = new JButton();
 //            @Override
@@ -60,9 +58,10 @@ public class DiscountUpdateTable extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         name = discountName.getText();
-        if (name == "SAVE10") {
-            System.out.println("YEsd");
-        }
-        //level = newLevel.getText();
+        level = newLevel.getText();
+        hasUpdated = true;
+        new DiscountResultTable(AppleProductDataBase.updateDl(level, name));
     }
 }
+
+

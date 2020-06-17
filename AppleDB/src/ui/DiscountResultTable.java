@@ -10,6 +10,7 @@ public class DiscountResultTable extends JFrame{
 
     DiscountResultTable(ArrayList<String> results){
 
+
         JPanel panel = new JPanel();
         add(panel);
 
@@ -42,13 +43,6 @@ public class DiscountResultTable extends JFrame{
         setVisible(true);
 
     }
-
-
-
-
-
-
-
 
 
 
