@@ -55,7 +55,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                // getResultsAll();
                 dispose();
-                new ResultTableProducts(Result.resultsAll,"All iPhones on sale");
+                new ResultTableProducts(Result.resultsAll,"All Available iPhones");
             }
         });
         apply.setText("Apply");
@@ -73,6 +73,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
         yearNTO64GB = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                dispose();
                 new ResultTableProducts(Result.resultsYNTO64,"Newest to Oldest + 64GB");
             }
         });
@@ -187,7 +188,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
         add(panel, BorderLayout.CENTER);
         pack();
 
-        setLocation(560, 350);
+        setLocation(410, 250);
         setTitle("Filter");
         setSize(600, 400);
         setVisible(true);

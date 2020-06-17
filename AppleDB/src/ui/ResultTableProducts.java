@@ -59,7 +59,7 @@ public class ResultTableProducts extends JFrame implements ActionListener{
 
         setSize(new Dimension(300, 375));
         setResizable(false);
-        setLocation(400, 270);
+        setLocation(550, 270);
         setTitle(title);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

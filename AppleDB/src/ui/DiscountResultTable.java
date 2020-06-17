@@ -61,14 +61,11 @@ public class DiscountResultTable extends JFrame implements ActionListener {
 
         setSize(new Dimension(300, 375));
         setResizable(false);
-        setLocation(400, 270);
+        setLocation(570, 270);
         setTitle(titlte);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        table1 = new DiscountUpdateTable();
-        table2 = new DiscountInsertTable();
-        table3 = new DiscountDeleteTable();
 
 
     }
@@ -78,8 +75,5 @@ public class DiscountResultTable extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         dispose();
         new AdministratorTable();
-        table1.setVisible(false);
-        table2.setVisible(false);
-        table3.setVisible(false);
     }
 }

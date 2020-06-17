@@ -19,8 +19,8 @@ public class AdministratorTable extends JFrame implements ActionListener {
         JButton editPhone = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ResultTableProducts(Result.resultsAll," Editing All iPhones ");
                 setVisible(false);
+                new DataBaseUI();
             }
         });
         editPhone.setText("           Update Product Database           ");
@@ -38,8 +38,9 @@ public class AdministratorTable extends JFrame implements ActionListener {
         JButton countAll = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CountProductTable();
                 setVisible(false);
+                new CountProductTable();
+
             }
         });
         countAll.setText("          Count All Existing iPhones         ");
@@ -48,8 +49,9 @@ public class AdministratorTable extends JFrame implements ActionListener {
         JButton viewAboveAverage = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new DiscountResultTable(AppleProductDataBase.priceHigherThanAvg(), " All iPhones Above Average Price");
                 setVisible(false);
+                new DiscountResultTable(AppleProductDataBase.priceHigherThanAvg(), " All iPhones Above Average Price");
+
             }
         });
         viewAboveAverage.setText(" View All Products Above Average Price");

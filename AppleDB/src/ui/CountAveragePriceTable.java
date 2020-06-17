@@ -55,7 +55,7 @@ public class CountAveragePriceTable extends JFrame implements ActionListener {
 
         setSize(new Dimension(600, 240));
         setResizable(false);
-        setLocation(560, 400);
+        setLocation(410, 300);
         setTitle("Average Price of All iPhones");
         setVisible(true);
 

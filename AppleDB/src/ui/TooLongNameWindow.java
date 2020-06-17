@@ -24,7 +24,7 @@ public class TooLongNameWindow extends JFrame implements ActionListener {
 
         setSize(new Dimension(500, 120));
         setResizable(false);
-        setLocation(460, 174);
+        setLocation(460, 374);
         setTitle("Incorrect Login");
         setVisible(true);
 

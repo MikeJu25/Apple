@@ -12,8 +12,8 @@ public class AppleProductDataBase {
     //Query1 AddDiscount(Insertion)
     public static ArrayList<String> addDiscount(String nmt, String lv, String aty){
         String query1 = "insert into Discount values (?, ?, ?)";
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
              PreparedStatement insert_stmt = cont.prepareStatement(query1);
         ) {
@@ -47,8 +47,8 @@ public class AppleProductDataBase {
 
     //Query2 GetIphoneInfo(Select)
     public static ArrayList<String> getPhoneInfo(){
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
         ) {
             String strSelect = "select im.name, im.phoneID, fc.color, fc.storage from iphonemanufacturedin2 im, featurescontains fc " +
@@ -79,8 +79,8 @@ public class AppleProductDataBase {
     //Query3 removeDiscount(delete)
     public static ArrayList<String> removeDiscount(String nme){
         String sqlDelete = "delete from Discount where discountname = ?";
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
              PreparedStatement delete_stmt = cont.prepareStatement(sqlDelete);
         ) {
@@ -111,8 +111,8 @@ public class AppleProductDataBase {
     //Query4 updateDiscountLevel(update)
     public static ArrayList<String> updateDl(String leve, String nme){
         String uQuery = "UPDATE Discount d SET level= ? WHERE d.discountName = ?";
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
              PreparedStatement update_stmt = cont.prepareStatement(uQuery);
         ) {
@@ -146,8 +146,8 @@ public class AppleProductDataBase {
     public static ArrayList<String> updateDiscount2(String leve, String nme){
         String uQuery = "UPDATE Discount d SET level= ? WHERE d.discountName = ?";
         String sQuery = "Select * from Discount where discountName = ?";
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
              PreparedStatement update_stmt = cont.prepareStatement(uQuery);
              PreparedStatement select_statement = cont.prepareStatement(sQuery);
@@ -181,8 +181,8 @@ public class AppleProductDataBase {
 
     //Query6 priceHighToLow
     public static ArrayList<String> priceHighToLow(){
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
         ) {
             String oQuery = "select name, phoneID, year, price from iphonemanufacturedin2 order by price";
@@ -211,8 +211,8 @@ public class AppleProductDataBase {
 
     //Query7 countNumber（aggregation)
     public static int count6(){
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
         ) {
             String cQuery = "select count(*) from iphone6";
@@ -231,8 +231,8 @@ public class AppleProductDataBase {
 
     //Query7 newestToOldest
     public static ArrayList<String> newestToOldest(){
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
         ) {
             String oQuery = "select distinct im.name, im.phoneID, im.price, im.year " +
@@ -264,8 +264,8 @@ public class AppleProductDataBase {
 
     //Query8 nestedQuery（join）
     public static ArrayList<String> priceHigherThanAvg(){
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
         ) {
             String oQuery = "Select im.name, im.phoneID, im.price, f.color, f.storage \n" +
@@ -300,8 +300,8 @@ public class AppleProductDataBase {
 
     //Query11 selectDiscount(select)
     public static ArrayList<String> selectDiscount(){
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
         ) {
             String strSelect = "select * from Discount";
@@ -328,8 +328,8 @@ public class AppleProductDataBase {
 
     //Query11 iphAllDiscount(Division)
     public static ArrayList<String> iphAppToAllDiscounts(){
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
         ) {
             String oQuery = "Select im.name, im.phoneID, im.price from iphonemanufacturedin2 im " +
@@ -364,8 +364,8 @@ public class AppleProductDataBase {
 
     //Query12 CountX(aggregation)
     public static int countX(){
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
         ) {
             String cQuery = "select count(*) from iphoneX";
@@ -385,8 +385,8 @@ public class AppleProductDataBase {
 
     //Query13 CountSE(aggregation)
     public static int countSE(){
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
         ) {
             String cQuery = "select count(*) from iphoneSE1";
@@ -405,8 +405,8 @@ public class AppleProductDataBase {
 
     //Query10 nqGroupBy(nested)
     public static ArrayList<String> iPhoneAvgPrice(){
-        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
-                "root", "q12345678");
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple?serverTimezone=UTC",
+                "root", "Guyingyuyi1!");
              Statement stmt = cont.createStatement();
         ) {
             String npQuery = "Select name, avg(price) as average from iphonemanufacturedin2 Group by name;";
@@ -416,8 +416,8 @@ public class AppleProductDataBase {
             while (rst.next()) {
                 String nm = rst.getString("name");
                 String pc = rst.getString("average");
-                System.out.println(nm + ", " + pc);
-                String together = nm + ", " + pc;
+                System.out.println(nm + ", $" + pc);
+                String together = nm + ", $" + pc;
                 info.add(together);
                 ++rowCount;
             }

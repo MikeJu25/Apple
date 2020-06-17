@@ -33,10 +33,9 @@ public class DiscountInsertTable extends JFrame implements ActionListener {
 
         setSize(new Dimension(380, 115));
         setResizable(false);
-        setLocation(730, 370);
+        setLocation(900, 370);
         setTitle("Insert Discount");
         setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
     }

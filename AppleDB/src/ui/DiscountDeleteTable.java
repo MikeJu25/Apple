@@ -26,10 +26,9 @@ public class DiscountDeleteTable extends JFrame implements ActionListener {
 
         setSize(new Dimension(380, 90));
         setResizable(false);
-        setLocation(730, 250);
+        setLocation(900, 250);
         setTitle("Delete Discount");
         setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
 
