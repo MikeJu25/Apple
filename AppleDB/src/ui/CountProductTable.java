@@ -27,19 +27,28 @@ public class CountProductTable extends JFrame implements ActionListener {
         label3.setText("The number of existing iPhone X is:  " + number3);
 
 
-
-
         JButton button = new JButton("     OK!     ");
         button.addActionListener(this);
+
+
+        JButton viewAveragePrice = new JButton(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                new CountAveragePriceTable();
+            }
+        });
+        viewAveragePrice.setText("  View Average Price of All Products");
 
         panel.add(label1);
         panel.add(label2);
         panel.add(label3);
-
+        panel.add(viewAveragePrice);
         panel.add(button);
+
         button.addActionListener(this);
 
-        setSize(new Dimension(300, 120));
+        setSize(new Dimension(300, 160));
         setResizable(false);
         setLocation(550, 374);
         setTitle("Product Count");
