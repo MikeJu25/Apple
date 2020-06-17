@@ -1,13 +1,11 @@
 package ui;
 
-import SQL.AppleProductDataBase;
 import ui.model.Result;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class DataBaseUI extends JFrame implements ActionListener {
 
@@ -55,7 +53,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                // getResultsAll();
                 dispose();
-                new ResultTablePrice(Result.resultsAll);
+                new ResultTableProducts(Result.resultsAll,"All iPhones on sale");
             }
         });
         apply.setText("Apply");
@@ -64,7 +62,8 @@ public class DataBaseUI extends JFrame implements ActionListener {
         priceLTHApply = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ResultTablePrice(Result.resultsPLTH);
+                dispose();
+                new ResultTableProducts(Result.resultsPLTH,"Price Low to High");
             }
         });
         priceLTHApply.setText("Apply");
@@ -72,7 +71,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
         yearNTO64GB = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ResultTableYear(Result.resultsYNTO64);
+                new ResultTableProducts(Result.resultsYNTO64,"Newest to Oldest + 64GB");
             }
         });
         yearNTO64GB.setText("Apply");
