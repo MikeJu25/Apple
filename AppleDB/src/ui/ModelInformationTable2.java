@@ -47,6 +47,7 @@ public class ModelInformationTable2 extends JFrame {
         setVisible(true);
 
 
+
     }
 
 }

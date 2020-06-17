@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 public class CountProductTable extends JFrame implements ActionListener {
 
+
     CountProductTable(){
         JPanel panel = new JPanel();
         add(panel);

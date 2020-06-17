@@ -3,7 +3,7 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 
-public class ModelInformationTable1 extends ModelInformationTable {
+public class ModelInformationTable1 extends JFrame {
     ModelInformationTable1() {
 
         JPanel panel = new JPanel();
@@ -49,5 +49,6 @@ public class ModelInformationTable1 extends ModelInformationTable {
         setLocation(570, 120);
         setTitle("Administrator - Model Details");
         setVisible(true);
+
     }
 }

@@ -47,5 +47,6 @@ public class ModelInformationTable4 extends JFrame {
         setTitle("Administrator - Model Details");
         setVisible(true);
 
+
     }
 }
