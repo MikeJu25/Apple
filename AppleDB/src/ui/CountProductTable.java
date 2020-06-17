@@ -13,9 +13,9 @@ public class CountProductTable extends JFrame implements ActionListener {
     CountProductTable(){
         JPanel panel = new JPanel();
         add(panel);
-        String number1 = " " + AppleProductDataBase.countNumber();
-        String number2 = " " + AppleProductDataBase.countNumber();
-        String number3 = " " + AppleProductDataBase.countNumber();
+        String number1 = " " + AppleProductDataBase.count6();
+        String number2 = " " + AppleProductDataBase.countSE();
+        String number3 = " " + AppleProductDataBase.countX();
 
         JLabel label1 = new JLabel();
         label1.setText("The number of existing iPhone 6 is:  " + number1);

@@ -210,7 +210,7 @@ public class AppleProductDataBase {
     }
 
     //Query7 countNumber（aggregation)
-    public static int countNumber(){
+    public static int count6(){
         try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
                 "root", "q12345678");
              Statement stmt = cont.createStatement();
@@ -263,7 +263,7 @@ public class AppleProductDataBase {
     }
 
     //Query8 nestedQuery（join）
-    public static ArrayList<String> nestedQuery(){
+    public static ArrayList<String> priceHigherThanAvg(){
         try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
                 "root", "q12345678");
              Statement stmt = cont.createStatement();
@@ -327,7 +327,7 @@ public class AppleProductDataBase {
     }
 
     //Query11 iphAllDiscount(Division)
-    public static ArrayList<String> iphAllDivision(){
+    public static ArrayList<String> iphAppToAllDiscounts(){
         try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
                 "root", "q12345678");
              Statement stmt = cont.createStatement();
@@ -362,6 +362,71 @@ public class AppleProductDataBase {
         return null;
     }
 
+    //Query12 CountX(aggregation)
+    public static int countX(){
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
+                "root", "q12345678");
+             Statement stmt = cont.createStatement();
+        ) {
+            String cQuery = "select count(*) from iphoneX";
+            ResultSet rst = stmt.executeQuery(cQuery);
+            int count = 0;
+            if(rst.next()) {
+                count = rst.getInt(1);
+                System.out.println(count);
+            };
+            return count;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return 0;
+    }
+
+
+    //Query13 CountSE(aggregation)
+    public static int countSE(){
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
+                "root", "q12345678");
+             Statement stmt = cont.createStatement();
+        ) {
+            String cQuery = "select count(*) from iphoneSE1";
+            ResultSet rst = stmt.executeQuery(cQuery);
+            int count = 0;
+            if(rst.next()) {
+                count = rst.getInt(1);
+                System.out.println(count);
+            };
+            return count;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return 0;
+    }
+
+    //Query10 nqGroupBy(nested)
+    public static ArrayList<String> iPhoneAvgPrice(){
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
+                "root", "q12345678");
+             Statement stmt = cont.createStatement();
+        ) {
+            String npQuery = "Select name, avg(price) as average from iphonemanufacturedin2 Group by name;";
+            ResultSet rst = stmt.executeQuery(npQuery);
+            ArrayList<String> info = new ArrayList<>();
+            int rowCount = 0;
+            while (rst.next()) {
+                String nm = rst.getString("name");
+                String pc = rst.getString("average");
+                System.out.println(nm + ", " + pc);
+                String together = nm + ", " + pc;
+                info.add(together);
+                ++rowCount;
+            }
+            return info;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }
 
 
