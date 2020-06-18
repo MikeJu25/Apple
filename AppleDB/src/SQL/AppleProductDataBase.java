@@ -297,8 +297,7 @@ public class AppleProductDataBase {
             return null;
         }
     }
-
-    //Query11 selectDiscount(select)
+    //Query9 selectDiscount(select)
     public static ArrayList<String> selectDiscount(){
         try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
                 "root", "q12345678");
@@ -409,7 +408,9 @@ public class AppleProductDataBase {
                 "root", "q12345678");
              Statement stmt = cont.createStatement();
         ) {
-            String npQuery = "Select name, avg(price) as average from iphonemanufacturedin2 Group by name;";
+            String npQuery = "Select name, avg(price) as average " +
+                    "from iphonemanufacturedin2 "
+                    +  "Group by name;";
             ResultSet rst = stmt.executeQuery(npQuery);
             ArrayList<String> info = new ArrayList<>();
             int rowCount = 0;
@@ -422,6 +423,61 @@ public class AppleProductDataBase {
                 ++rowCount;
             }
             return info;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    //Query13 higher than 6's price
+    public static ArrayList<String> avgPriceHigher6(){
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
+                "root", "q12345678");
+             Statement stmt = cont.createStatement();
+        ) {
+            String npQuery = "Select name, avg(price) as average " +
+                    "from iphonemanufacturedin2 where Price > (select max(price) " +
+                    "from iphonemanufacturedin2 where name = 'iphone6') Group by name;";
+            ResultSet rst = stmt.executeQuery(npQuery);
+            ArrayList<String> info = new ArrayList<>();
+            int rowCount = 0;
+            while (rst.next()) {
+                String nm = rst.getString("name");
+                String pc = rst.getString("average");
+                System.out.println(nm + ", " + pc);
+                String together = nm + ", " + pc;
+                info.add(together);
+                ++rowCount;
+            }
+            return info;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    //Query14 showPw(select)
+    public static ArrayList<String> showRetailedThrough(){
+        try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
+                "root", "q12345678");
+             Statement stmt = cont.createStatement();
+        ) {
+            String strSelect = "Select * from retailedthrough2;";
+            ResultSet rst = stmt.executeQuery(strSelect);
+            System.out.println("The records selected are:");
+            int rowCount = 0;
+            ArrayList<String> info = new ArrayList<>();
+            while (rst.next()) {
+                String nm = rst.getString("discountname");
+                String cr = rst.getString("channelname");
+                String together = nm + "," + cr;
+                info.add(together);
+                System.out.println(nm + ", " + cr);
+                ++rowCount;
+            }
+            System.out.println("Total number of records = " + rowCount);
+            return info;
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

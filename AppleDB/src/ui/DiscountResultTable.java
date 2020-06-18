@@ -61,12 +61,12 @@ public class DiscountResultTable extends JFrame implements ActionListener {
         back.addActionListener(this);
 
 
-        setSize(new Dimension(300, 375));
+        setSize(new Dimension(250, 375));
         setResizable(false);
         setLocation(570, 270);
         setTitle(titlte);
         setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
 

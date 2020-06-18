@@ -1,6 +1,7 @@
 package ui;
 
 import SQL.AppleProductDataBase;
+import ui.model.Result;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,15 +41,25 @@ public class CountProductTable extends JFrame implements ActionListener {
         });
         viewAveragePrice.setText("  View Average Price of All Products");
 
+        JButton viewHigher6 = new JButton(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                new DiscountResultTable(Result.resultsHigher6,"Price Higher than 6");
+            }
+        });
+        viewHigher6.setText("  View Average Price Higher Than iPhone6");
+
         panel.add(label1);
         panel.add(label2);
         panel.add(label3);
         panel.add(viewAveragePrice);
+        panel.add(viewHigher6);
         panel.add(button);
 
         button.addActionListener(this);
 
-        setSize(new Dimension(300, 160));
+        setSize(new Dimension(300, 260));
         setResizable(false);
         setLocation(550, 374);
         setTitle("Product Count");
