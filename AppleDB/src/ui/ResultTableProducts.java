@@ -50,6 +50,7 @@ public class ResultTableProducts extends JFrame implements ActionListener{
         for (int i = 0; i < size; i++) {
             panel.add(labels.get(i));
             labels.get(i).setText(results.get(i));
+            labels.get(i).addActionListener(this);
         }
 
         JButton back = new JButton("    Return     ");
@@ -78,19 +79,19 @@ public class ResultTableProducts extends JFrame implements ActionListener{
             new DataBaseUI();
         }
         if (str.contains("10001")) {
-            new ModelInformationTable1();
+            new SpecificationTable1();
         }
         if (str.contains("10002")) {
-            new ModelInformationTable2();
+            new SpecificationTable2();
         }
         if (str.contains("10003")) {
-            new ModelInformationTable3();
+            new SpecificationTable3();
         }
         if (str.contains("10004")) {
-            new ModelInformationTable4();
+            new SpecificationTable4();
         }
         if (str.contains("10005")) {
-            new ModelInformationTable5();
+            new SpecificationTable5();
         }
     }
 }

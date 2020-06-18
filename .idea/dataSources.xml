@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="apple@localhost" uuid="32d646d9-5063-4501-bfc2-9aa6f230eb24">
+    <data-source source="LOCAL" name="appledb@localhost" uuid="ca3fbe3c-6e98-447f-a8a7-72720ecf27bd">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/apple</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/appledb</jdbc-url>
       <driver-properties>
         <property name="serverTimezone" value="UTC" />
       </driver-properties>

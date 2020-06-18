@@ -15,6 +15,7 @@ public class DiscountResultTable extends JFrame implements ActionListener {
     DiscountInsertTable table2;
     DiscountDeleteTable table3;
 
+    //you can add the third parameter for accurately return
     DiscountResultTable(ArrayList<String> results, String titlte){
 
 
@@ -52,6 +53,7 @@ public class DiscountResultTable extends JFrame implements ActionListener {
         for (int i = 0; i < size; i++) {
             panel.add(labels.get(i));
             labels.get(i).setText(results.get(i));
+            labels.get(i).addActionListener(this);
         }
 
         JButton back = new JButton("    Return     ");
@@ -73,7 +75,27 @@ public class DiscountResultTable extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        dispose();
-        new AdministratorTable();
+        JButton button = (JButton) e.getSource();
+        String str = button.getText();
+        if (str == "    Return     ") {
+            //if 3rd parameter == ??, we will return to ...
+            dispose();
+            new AdministratorTable();
+        }
+        if (str.contains("10001")) {
+            new ModelInformationTable1();
+        }
+        if (str.contains("10002")) {
+            new ModelInformationTable2();
+        }
+        if (str.contains("10003")) {
+            new ModelInformationTable3();
+        }
+        if (str.contains("10004")) {
+            new ModelInformationTable4();
+        }
+        if (str.contains("10005")) {
+            new SpecificationTable5();
+        }
     }
 }
