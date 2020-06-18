@@ -34,7 +34,7 @@ public class SpecificationTable2 extends JFrame{
 
         setSize(new Dimension(300, 480));
         setResizable(false);
-        setLocation(570, 320);
+        setLocation(550, 220);
         setTitle("Model Details");
         setVisible(true);
 

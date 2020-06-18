@@ -56,15 +56,6 @@ public class AdministratorTable extends JFrame implements ActionListener {
         viewAboveAverage.setText(" View All Products Above Average Price");
 
 
-//        JButton division = new JButton(new AbstractAction() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                new DiscountResultTable(AppleProductDataBase.iphAllDivision());
-//                setVisible(false);
-//            }
-//        });
-//        division.setText(" division");
-
         JButton view = new JButton("          View All Existing Products          ");
         view.addActionListener(this);
 
@@ -76,12 +67,10 @@ public class AdministratorTable extends JFrame implements ActionListener {
         panel.add(countAll);
         panel.add(view);
         panel.add(viewAboveAverage);
-//        panel.add(division);
-//        pack();
 
         setSize(new Dimension(300, 220));
         setResizable(false);
-        setLocation(550, 340);
+        setLocation(570, 340);
         setTitle("Administrator Table");
         setVisible(true);
 

@@ -32,6 +32,10 @@ public class GeneralResultTable extends JFrame implements ActionListener {
         JButton label8 = new JButton();
         JButton label9 = new JButton();
         JButton label10 = new JButton();
+        JButton label11 = new JButton();
+        JButton label12 = new JButton();
+        JButton label13 = new JButton();
+        JButton label14 = new JButton();
         ArrayList<JButton> buttonsBase = new ArrayList<>();
         buttonsBase.add(label1);
         buttonsBase.add(label2);
@@ -43,6 +47,10 @@ public class GeneralResultTable extends JFrame implements ActionListener {
         buttonsBase.add(label8);
         buttonsBase.add(label9);
         buttonsBase.add(label10);
+        buttonsBase.add(label11);
+        buttonsBase.add(label12);
+        buttonsBase.add(label13);
+        buttonsBase.add(label14);
 
         Integer size = results.size();
         labels = new ArrayList<>();
@@ -61,9 +69,9 @@ public class GeneralResultTable extends JFrame implements ActionListener {
         back.addActionListener(this);
 
 
-        setSize(new Dimension(250, 375));
+        setSize(new Dimension(280, 375));
         setResizable(false);
-        setLocation(570, 270);
+        setLocation(580, 270);
         setTitle(titlte);
         setVisible(true);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

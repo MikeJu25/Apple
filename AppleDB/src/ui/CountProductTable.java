@@ -48,7 +48,7 @@ public class CountProductTable extends JFrame implements ActionListener {
                 new GeneralResultTable(Result.resultsHigher6,"Price Higher than 6");
             }
         });
-        viewHigher6.setText("  View Average Price Higher Than iPhone6");
+        viewHigher6.setText("View Average Price Higher Than iPhone6");
 
         panel.add(label1);
         panel.add(label2);
@@ -59,7 +59,7 @@ public class CountProductTable extends JFrame implements ActionListener {
 
         button.addActionListener(this);
 
-        setSize(new Dimension(300, 260));
+        setSize(new Dimension(300, 200));
         setResizable(false);
         setLocation(550, 374);
         setTitle("Product Count");

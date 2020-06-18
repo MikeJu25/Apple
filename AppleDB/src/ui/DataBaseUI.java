@@ -14,11 +14,13 @@ public class DataBaseUI extends JFrame implements ActionListener {
     private final JPanel panel3;
     private final JPanel panel4;
     private final JPanel panel5;
+    private final JPanel panel6;
     private JLabel empty;
     private JLabel yearTitle;
     private JLabel priceTitle;
     private JLabel storage;
     private JLabel color;
+    private JLabel blank;
     private JComboBox price;
     private JComboBox year;
     private JCheckBox gold;
@@ -33,27 +35,20 @@ public class DataBaseUI extends JFrame implements ActionListener {
     private JButton back;
     private Boolean liushisiSelected;
 
-  //  private final JLabel test = new JLabel("good");
-
-//    public static void getResultsAll() {
-//        results = AppleProductDataBase.getPhoneInfo();
-//    }
-//
-//    public static void getResultsPLTH() {
-//        results = AppleProductDataBase.getPhoneInfo();
-//    }
-
-
-
     String[] priceStrings = {"High to Low", "Low to High", "Default"};
     String[] yearStrings = {"Oldest to Newest", "Newest to Oldest", "Default"};
 
     DataBaseUI() {
-//        panel = new JPanel();
+
+
+        JButton compareModels = new JButton("Compare All Models");
+        compareModels.addActionListener(this);
+
+
+        blank = new JLabel("                                                                            ");
         apply = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // getResultsAll();
                 dispose();
                 new ResultTableProducts(Result.resultsAll,"All Available iPhones");
             }
@@ -82,7 +77,7 @@ public class DataBaseUI extends JFrame implements ActionListener {
 
         panel = new JPanel(new GridLayout(5, 1));
         add(panel);
-        this.setLayout(new GridLayout(5, 1));
+        this.setLayout(new GridLayout(6, 1));
         panel2 = new JPanel(new GridLayout(1, 3));
         add(panel2);
         panel3 = new JPanel(new GridLayout(1, 3));
@@ -92,6 +87,10 @@ public class DataBaseUI extends JFrame implements ActionListener {
         add(panel4);
         panel5 = new JPanel(new GridLayout(1,1));
         add(panel5);
+        panel6 = new JPanel(new GridLayout(1,1));
+        add(panel6);
+
+
 
         priceTitle = new JLabel("Price");
         yearTitle = new JLabel("Year");
@@ -117,7 +116,6 @@ public class DataBaseUI extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 AbstractButton abstractButton = (AbstractButton) e.getSource();
                 if (abstractButton.isSelected()) {
-                   // System.out.println("Yes");
                     liushisiSelected = true;
                 }
             }
@@ -173,16 +171,15 @@ public class DataBaseUI extends JFrame implements ActionListener {
         panel.add(price);
         panel.add(empty);
         panel.add(empty);
-        //panel.add(color);
         panel3.add(gold);
         panel3.add(black);
         panel3.add(gray);
         panel3.add(gold);
-        //panel.add(storage);
         panel2.add(shiliu);
         panel2.add(liushisi);
         panel2.add(yibaershiba);
         panel5.add(back);
+        panel6.add(compareModels);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         add(panel, BorderLayout.CENTER);
@@ -190,23 +187,15 @@ public class DataBaseUI extends JFrame implements ActionListener {
 
         setLocation(410, 250);
         setTitle("Filter");
-        setSize(600, 400);
+        setSize(600, 450);
         setVisible(true);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-//        JButton applyClicked = (JButton) e.getSource();
-//        JComboBox comboBox = (JComboBox) e.getSource();
-//
-//        if (applyClicked.getText().equals("Apply")) {
-//            System.out.println(comboBox.getSelectedIndex());
-//            if (comboBox.getSelectedItem() == "Low to High") {
-//                new EmptyNameWindow();
-//            }
-//        } else {
-//
-//        }
+        new ComparisonTable();
+
     }
 }
 

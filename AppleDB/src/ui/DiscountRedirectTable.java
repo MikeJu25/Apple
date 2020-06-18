@@ -21,14 +21,8 @@ public class DiscountRedirectTable extends JFrame implements ActionListener {
                 GeneralResultTable discountTable = new GeneralResultTable(Result.resultsDiscount, "All Available Discounts");
                 discountTable.setLocation(570, 270);
                 new DiscountUpdateTable();
-                new DiscountInsertTable();
-                new DiscountDeleteTable();
                 GeneralResultTable retailTable = new GeneralResultTable(Result.resultsRetailed,"Retailer");
                 retailTable.setLocation(230,270);
-//                if (DiscountUpdateTable.hasUpdated) {
-//                    System.out.println("yes");
-//                    dr.dispose();
-//                }
                 setVisible(false);
             }
         });
@@ -42,7 +36,6 @@ public class DiscountRedirectTable extends JFrame implements ActionListener {
             }
         });
         back.setText("    Return      ");
-      //  back.addActionListener(this);
 
 
         panel.add(button1);
