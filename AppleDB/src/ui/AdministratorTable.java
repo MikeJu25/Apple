@@ -1,7 +1,6 @@
 package ui;
 
 import SQL.AppleProductDataBase;
-import ui.model.Result;
 
 import javax.swing.*;
 import java.awt.*;
@@ -50,7 +49,7 @@ public class AdministratorTable extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new DiscountResultTable(AppleProductDataBase.priceHigherThanAvg(), " All iPhones Above Average Price");
+                new GeneralResultTable(AppleProductDataBase.priceHigherThanAvg(), " All iPhones Above Average Price");
 
             }
         });

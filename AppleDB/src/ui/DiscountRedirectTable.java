@@ -18,12 +18,12 @@ public class DiscountRedirectTable extends JFrame implements ActionListener {
         JButton button2 = new JButton(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DiscountResultTable discountTable = new DiscountResultTable(Result.resultsDiscount, "All Available Discounts");
+                GeneralResultTable discountTable = new GeneralResultTable(Result.resultsDiscount, "All Available Discounts");
                 discountTable.setLocation(570, 270);
                 new DiscountUpdateTable();
                 new DiscountInsertTable();
                 new DiscountDeleteTable();
-                DiscountResultTable retailTable = new DiscountResultTable(Result.resultsRetailed,"Retailer");
+                GeneralResultTable retailTable = new GeneralResultTable(Result.resultsRetailed,"Retailer");
                 retailTable.setLocation(230,270);
 //                if (DiscountUpdateTable.hasUpdated) {
 //                    System.out.println("yes");
@@ -70,6 +70,6 @@ public class DiscountRedirectTable extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         setVisible(false);
-        new DiscountResultTable(Result.resultsAppAllDis, "iPhone Applicable to All Discounts");
+        new GeneralResultTable(Result.resultsAppAllDis, "iPhone Applicable to All Discounts");
     }
 }

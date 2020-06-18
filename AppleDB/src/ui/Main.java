@@ -10,8 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        new AdministratorTable();
-        // System.out.println(AppleProductDataBase.iPhoneAvgPrice());
+        new LoginUI();
 
     }
 }

@@ -179,7 +179,7 @@ public class AppleProductDataBase {
         return null;
     }
 
-    //Query6 priceHighToLow
+    //Query5 priceHighToLow
     public static ArrayList<String> priceHighToLow(){
         try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
                 "root", "q12345678");
@@ -229,14 +229,14 @@ public class AppleProductDataBase {
         return 0;
     }
 
-    //Query7 newestToOldest
+    //Query7 newestToOldest (join)
     public static ArrayList<String> newestToOldest(){
         try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
                 "root", "q12345678");
              Statement stmt = cont.createStatement();
         ) {
             String oQuery = "select distinct im.name, im.phoneID, im.price, im.year " +
-                    "from iphonemanufacturedin2 im, featurescontains fc " +
+                    "from iphonemanufacturedin2 im inner join featurescontains fc " +
                     "where fc.storage = '16' AND fc.phoneID = im.phoneID" +
                     " Order by year desc";
             ResultSet rst = stmt.executeQuery(oQuery);
@@ -262,7 +262,7 @@ public class AppleProductDataBase {
         return null;
     }
 
-    //Query8 nestedQuery（join）
+    //Query8 Query（join）
     public static ArrayList<String> priceHigherThanAvg(){
         try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
                 "root", "q12345678");
@@ -402,7 +402,7 @@ public class AppleProductDataBase {
         return 0;
     }
 
-    //Query10 nqGroupBy(nested)
+    //Query14 nqGroupBy(nested)
     public static ArrayList<String> iPhoneAvgPrice(){
         try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
                 "root", "q12345678");
@@ -429,7 +429,7 @@ public class AppleProductDataBase {
         return null;
     }
 
-    //Query13 higher than 6's price
+    //Query15 higher than 6's price
     public static ArrayList<String> avgPriceHigher6(){
         try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
                 "root", "q12345678");
@@ -456,7 +456,7 @@ public class AppleProductDataBase {
         return null;
     }
 
-    //Query14 showPw(select)
+    //Query16 showPw(select)
     public static ArrayList<String> showRetailedThrough(){
         try (Connection cont = DriverManager.getConnection("jdbc:mysql://localhost:3306/appledb?serverTimezone=UTC",
                 "root", "q12345678");

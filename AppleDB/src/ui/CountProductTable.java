@@ -45,7 +45,7 @@ public class CountProductTable extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new DiscountResultTable(Result.resultsHigher6,"Price Higher than 6");
+                new GeneralResultTable(Result.resultsHigher6,"Price Higher than 6");
             }
         });
         viewHigher6.setText("  View Average Price Higher Than iPhone6");

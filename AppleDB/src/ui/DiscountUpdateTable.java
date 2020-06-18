@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class DiscountUpdateTable extends JFrame implements ActionListener {
 
@@ -59,7 +58,7 @@ public class DiscountUpdateTable extends JFrame implements ActionListener {
         name = discountName.getText();
         level = newLevel.getText();
         hasUpdated = true;
-        new DiscountResultTable(AppleProductDataBase.updateDl(level, name),"New Table After Update");
+        new GeneralResultTable(AppleProductDataBase.updateDl(level, name),"New Table After Update");
     }
 }
 

@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class DiscountResultTable extends JFrame implements ActionListener {
+public class GeneralResultTable extends JFrame implements ActionListener {
 
     ArrayList<JButton> labels;
     DiscountUpdateTable table1;
@@ -16,7 +16,7 @@ public class DiscountResultTable extends JFrame implements ActionListener {
     DiscountDeleteTable table3;
 
     //you can add the third parameter for accurately return
-    DiscountResultTable(ArrayList<String> results, String titlte){
+    GeneralResultTable(ArrayList<String> results, String titlte){
 
 
         JPanel panel = new JPanel();
